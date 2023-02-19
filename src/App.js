@@ -15,6 +15,25 @@ const mainMenu = [
 
 const myZagolovokSaita = 'Hello My SIte';
 
+// homework
+const items = [
+  {
+    title: 'Milk',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error qui debitis libero minus nulla alias optio.',
+    url: 'milk.png'
+  },
+  {
+    title: 'Bread',
+    description: ' Ea provident odit placeat at alias veritatis iusto soluta, consequatur, adipisci aut, repellat magni?',
+    url: 'bread.png'
+  },
+  {
+    title: 'Meet',
+    description: 'Placeat, obcaecati soluta aliquid dignissimos totam optio tenetur molestias quae maxime ipsum ratione.',
+    url: 'meet.png'
+  }
+]; // По аналогии как делали на уроке со списком - распечатать внутри дива "homework-1" несколько дивов(не список) вывести title(h2) & description(p)
+
 
 const App = () => {
   return (
@@ -32,6 +51,10 @@ const App = () => {
           })
         }
       </ul>
+
+      <div className='homework-1'>
+
+      </div>
     </div>
   );
 }
