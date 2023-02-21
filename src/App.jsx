@@ -1,4 +1,5 @@
 import './App.css';
+import Menu, { menuVar, MyComponent, myVar2 } from './components/Menu';
 
 
 // MOCK DB
@@ -38,38 +39,33 @@ const items = [
 
 
 const App = () => {
-  return (
-    <div className='container'>
-      <h1 className='text-blue1'>{myZagolovokSaita}</h1>
-      <ul className=''>
-        {
-          mainMenu.map((item, i) => {
-            console.log('item: ', item, 'i: ', i);
-            return (
-              <li className='' key={`top-menu-item-${i}`}>
-                {item.value} <span>Position: {item.postiton}</span> | <span>Index: {i}</span>
-              </li>
-            )
-          })
-        }
-      </ul>
+    return (
+        <div className='container'>
+            <h1 className='text-blue1'>{myZagolovokSaita}</h1>
+            <Menu
+                items={mainMenu}
+                color='red'/>
 
-      <div className='homework-1'>
-      <h1 className='text-blue1'>{homeworkTitle1}</h1>
-      <div>
-      {
-          items.map((item) => {
-            return (
-              <div className='text-white'>
-                <h2>{item.title}</h2><p>{item.description}</p> 
-              </div>
-            )
-          })
-        }
-      </div>
-      </div>
-    </div>
-  );
+            <MyComponent />
+
+            <div className='homework-1'>
+                <h1 className='text-blue1'>{homeworkTitle1}</h1>
+                <div>
+                    {
+                        items.map((item, i) => {
+                            return (
+                                <div className='text-white' key={`div-item-${i}`}>
+                                    <h2>{item.title}</h2>
+                                    <p>{item.description}</p>
+                                    <img src={item.url} alt={`picture-${item.title}`}/> 
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default App;
