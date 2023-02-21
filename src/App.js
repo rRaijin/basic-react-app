@@ -15,6 +15,8 @@ const mainMenu = [
 
 const myZagolovokSaita = 'Hello My SIte';
 
+const homeworkTitle1 = 'Homework 1'
+
 // homework
 const items = [
   {
@@ -38,7 +40,7 @@ const items = [
 const App = () => {
   return (
     <div className='container'>
-      <h1>{myZagolovokSaita}</h1>
+      <h1 className='text-blue1'>{myZagolovokSaita}</h1>
       <ul className=''>
         {
           mainMenu.map((item, i) => {
@@ -53,7 +55,18 @@ const App = () => {
       </ul>
 
       <div className='homework-1'>
-
+      <h1 className='text-blue1'>{homeworkTitle1}</h1>
+      <div>
+      {
+          items.map((item) => {
+            return (
+              <div className='text-white'>
+                <h2>{item.title}</h2><p>{item.description}</p> 
+              </div>
+            )
+          })
+        }
+      </div>
       </div>
     </div>
   );
