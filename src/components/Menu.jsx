@@ -1,5 +1,4 @@
-import { Fragment } from 'react';
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 
 const Menu = (props) => {
     const { items, color, gh } = props;
