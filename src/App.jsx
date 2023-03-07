@@ -63,8 +63,8 @@ const Card1 = (props) => {
   const { title, description, index } = props;
   let [clicked, setClicked] = useState(0); // локальное состояние каждого элемента 
   const clickHandler = () => {
-    console.log('cl:')
-    setClicked(clicked++);
+    console.log('cl: ', clicked)
+    setClicked(clicked+1);
   }
 
   console.log('clicked:', clicked);
