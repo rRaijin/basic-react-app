@@ -26,7 +26,7 @@ const Menu = (props) => {
             })
             }
         </ul>
-        <p>TOTAL CLICK: {cntClicked}</p>
+        {/* <p>TOTAL CLICK: {cntClicked}</p> */}
         </Fragment>
     )
 }

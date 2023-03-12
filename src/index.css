@@ -16,10 +16,17 @@ code {
   color: white;
 }
 
-.text-blue1 {
+.text-blue {
   color:#4a4fdd;
 }
 
 .text-red {
   color: #e60505;
+}
+
+.card-item {
+  background-color: blueviolet;
+  padding: 5px;
+  border: 2px solid black;
+  margin-bottom: 220px;
 }

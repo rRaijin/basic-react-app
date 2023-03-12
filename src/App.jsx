@@ -2,6 +2,8 @@ import './App.css';
 import Menu, { menuVar, MyComponent, myVar2 } from './components/Menu';
 import { useState } from 'react';
 
+import MyCard, { myNumber } from './components/cards/MosaicItem';
+
 // MOCK DB
 const mainMenu = [
   {postiton: 1, value: 'Option'},
@@ -89,7 +91,8 @@ const App = () => {
                 items={mainMenu}
                 color='red'/>
 
-            <MyComponent />
+            <MyCard
+                item={items[0]}/>
 
             <div className='homework-1'>
                 <h2 className='text-blue1'>{homeworkTitle1}</h2>
