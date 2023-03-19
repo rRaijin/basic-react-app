@@ -1,0 +1,13 @@
+{
+    "menuItems": [
+        {"postiton": 1, "value": "books"},
+        {"postiton": 2, "value": "authors"},
+        {"postiton": 3, "value": "blog"},
+        {"postiton": 4, "value": "about"},
+        {"postiton": 5, "value": "policy"}
+    ],
+    "myVar1": 42,
+    "sx": {
+        "a": 1
+    }
+}

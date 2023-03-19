@@ -2,9 +2,9 @@ import { useState, Fragment } from 'react';
 
 const Menu = (props) => {
     const { items, color, gh } = props;
-    console.log('props: ', props);
-    console.log('color: ', color);
-    console.log('gh: ', gh);
+    // console.log('props: ', props);
+    // console.log('color: ', color);
+    // console.log('gh: ', gh);
 
     let [cntClicked, setCntClicked] = useState(0);
 
