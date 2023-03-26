@@ -1,4 +1,3 @@
-
 {
     "menuItems": [
         {
@@ -6,13 +5,20 @@
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Error qui debitis libero minus nulla alias optio.",
             "url": "milk.png"
         },
-            {"title": "Bread",
+        {
+            "title": "Bread",
             "description": "Ea provident odit placeat at alias veritatis iusto soluta, consequatur, adipisci aut, repellat magni?",
             "url": "bread.png"
         },
-            {"title": "Meet",
+        {
+            "title": "Meet",
             "description": "Placeat, obcaecati soluta aliquid dignissimos totam optio tenetur molestias quae maxime ipsum ratione.",
             "url": "meet.png"
+        }
+    ],
+    "someone": {
+        "sometwo": {
+            "somethree": [1, 3, 5]
+        }
     }
-    ]
 }

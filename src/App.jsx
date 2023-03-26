@@ -1,4 +1,4 @@
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faHouse } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '@mui/material/Button';
@@ -7,45 +7,49 @@ import './App.css';
 import Menu, { menuVar, MyComponent, myVar2 } from './components/Menu';
 import menu1 from './mock/menu.json';
 import items from './mock/items.json';
+import MainPageHead from './components/MainPageHead';
 
 
-console.log('menu: ', menu1);
-const myZagolovokSaita = 'Hello My SIte';
+console.log('menu: ', faHouse);
 const homeworkTitle1 = 'Homework 1'
+
 // homework
+// spin?: boolean
+// spinPulse?: boolean
+// spinReverse?: boolean
+// pulse?: boolean
+// beat?: boolean
+// fade?: boolean
+// beatFade?: boolean
+// bounce?: boolean
+// shake?: boolean
+// border?: boolean
+// fixedWidth?: boolean
+// inverse?: boolean
+// listItem?: boolean
+// title?: string;
 
 
 const App = () => {
     const show = true;
     return (
-        <div className='container'>
-            <h1 className='text-blue1'>{myZagolovokSaita}</h1>
-            <Menu
-                items={menu1.menuItems}
-                color='red'/>
+        <div className='container flex flex-col'>
+            <MainPageHead subTitle='qwe' someNumber={4} myBul={true}/>
 
-            <FontAwesomeIcon icon={faCoffee} />
+            <div className='mt-240'>
+                <FontAwesomeIcon
+                    icon={faCoffee}
+                    color='#29d879'
+                    spin={true}
+                    size={'5x'}/>
 
-            <Button variant="text">Text</Button>
-            <Button variant="contained">Contained</Button>
-            <Button variant="outlined">Outlined</Button>
+                <FontAwesomeIcon icon={faHouse}/>
+            </div>
 
-            <div className='homework-1'>
-                <h2 className='text-blue1'>{homeworkTitle1}</h2>
-                <div>
-                    {
-                        items.map(function(item, index) {
-                            return (
-                                <div className='text-white' key={`div-item-${index}`}>
-                                    <h3>{item.title}</h3>
-                                    <p>{item.description}</p>
-                                    <img src={item.url} alt={`picture-${item.title}`}/> 
-                                </div>
-                            )
-                        })
-                    }
-                </div>
-                <button>sfdgdf</button>
+            <div className='mt-240'>
+                <Button variant="text">Text</Button>
+                <Button variant="contained">Contained</Button>
+                <Button variant="outlined">Outlined</Button>
             </div>
         </div>
     );
@@ -54,9 +58,6 @@ const App = () => {
 export default App;
 
 // задание 1: перенести массив items в папку mock и сохранить как json, импортировать тут, вывести в console.log
-
 // задание 2: вывести бадж
-
-
 // задание 3: теорию читаем
-// задание 4: 
+// задание 4:
