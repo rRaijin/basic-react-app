@@ -6,30 +6,13 @@ import Button from '@mui/material/Button';
 import './App.css';
 import Menu, { menuVar, MyComponent, myVar2 } from './components/Menu';
 import menu1 from './mock/menu.json';
-
+import items from './mock/items.json';
 
 
 console.log('menu: ', menu1);
 const myZagolovokSaita = 'Hello My SIte';
 const homeworkTitle1 = 'Homework 1'
 // homework
-const items = [
-  {
-    title: 'Milk',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Error qui debitis libero minus nulla alias optio.',
-    url: 'milk.png'
-  },
-  {
-    title: 'Bread',
-    description: ' Ea provident odit placeat at alias veritatis iusto soluta, consequatur, adipisci aut, repellat magni?',
-    url: 'bread.png'
-  },
-  {
-    title: 'Meet',
-    description: 'Placeat, obcaecati soluta aliquid dignissimos totam optio tenetur molestias quae maxime ipsum ratione.',
-    url: 'meet.png'
-  }
-];
 
 
 const App = () => {
@@ -71,6 +54,9 @@ const App = () => {
 export default App;
 
 // задание 1: перенести массив items в папку mock и сохранить как json, импортировать тут, вывести в console.log
+
 // задание 2: вывести бадж
+
+
 // задание 3: теорию читаем
 // задание 4: 
