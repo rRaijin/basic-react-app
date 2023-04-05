@@ -29,6 +29,10 @@ code {
     width: 1200px;
 }
 
+.border-0 {
+  border: 0;
+}
+
 .flex {
     display: flex;
 }
@@ -73,4 +77,35 @@ code {
     font-weight: bold;
     bottom: 0;
     padding: 10px;
+}
+
+.w-15p {
+  width: 15%;
+}
+
+.mt-30px {
+  margin-top: 30px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.ml-6p {
+  margin-left: 6%;
+}
+.font-size-20px {
+  font-size: 20px;
+}
+
+.back-red {
+  background: #dc2d2d;
+}
+
+.pad-10px {
+  padding: 10px;
+}
+
+.brd-radius-7px {
+  border-radius: 7px;
 }
