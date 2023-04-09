@@ -8,6 +8,7 @@ import Menu, { menuVar, MyComponent, myVar2 } from './components/Menu';
 import menu1 from './mock/menu.json';
 import items from './mock/items.json';
 import MainPageHead from './components/MainPageHead';
+import BookPage from './pages/booksPage';
 
 
 console.log('menu: ', faHouse);
@@ -36,7 +37,9 @@ const App = () => {
         <div className='container flex flex-col'>
             <MainPageHead subTitle='qwe' someNumber={4} myBul={true}/>
 
-            <div className='mt-240'>
+            <BookPage/>
+
+            {/* <div className='mt-240'>
                 <FontAwesomeIcon
                     icon={faCoffee}
                     color='#29d879'
@@ -63,27 +66,8 @@ const App = () => {
                 <Button variant="outlined">Outlined</Button>
             </div>
             <div>
-                <img className='w-15p mt-30px ml-6p' src="https://cdn.eksmo.ru/v2/ITD000000001120923/COVER/cover1__w820.jpg" alt="mark-tven"/>
-                <div className='bold'>
-                    Название: Приключе́ния То́ма Со́йера
-                </div>
-                <div className='bold'>
-                    Год: 1876г
-                </div>
-                <div className='bold'>
-                    Жанр: Роман, Детская Литература, Сатира  
-                </div>
-                <div className='bold'>
-                    Автор: Марк Твен
-                </div>
-                <div className='bold font-size-20px'>
-                    500грн
-                </div>
-                <input type='button' className='back-red text-white border-0 pad-10px brd-radius-7px'>
-                    Купить
-                </input>
                 
-            </div>
+            </div> */}
         </div>
     );
 }
