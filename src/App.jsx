@@ -82,6 +82,7 @@ const App = () => {
                 <input type='button' className='back-red text-white border-0 pad-10px brd-radius-7px'>
                     Купить
                 </input>
+                
             </div>
         </div>
     );
