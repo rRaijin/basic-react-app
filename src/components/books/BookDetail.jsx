@@ -4,6 +4,7 @@ const BookDetail = (props) => {
     // {id: 4, title: 'Детектив'} - g
     // genre: [1, 2, 3], => item.genre
     const filteredGenres = genres.filter(g => item.genre.indexOf(g.id) !== -1);
+    const filteredAuthors = authors.filter(a => item.genre.indexOf(a.id) !== -1);
 
     return (
         <div className=''>
@@ -31,7 +32,19 @@ const BookDetail = (props) => {
                 </ul>
             </div>
             <div className='bold'>
-                Автор: 
+                <div>
+                    Автор: 
+                    {          
+                        filteredAuthors.map((authors, index) => {
+                            return (
+                                <li className='card-item' key={`authors_${index}`}>
+                                    {authors.firstName} {authors.lastName}
+                                </li>
+                            )
+                        })
+                    }
+                </div>     
+                
             </div>
             <div className='bold font-size-20px'>
                 {item.price} грн

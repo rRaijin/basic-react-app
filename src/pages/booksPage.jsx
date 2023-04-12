@@ -17,6 +17,11 @@ const BookPage = () => {
         {
             id: 2,
             firstName: 'author'
+        },
+        {
+            id: 3,
+            firstName: 'Артур',
+            lastName: 'Конан Дойл'
         }
     ];
 
@@ -36,7 +41,16 @@ const BookPage = () => {
             price: 1000,
             author: 2,
             picture: 'starvi.webp'
+        },
+        {
+            bookName: 'Приключения Шерлока Холмса',
+            year: 1892,
+            genre: [4],
+            price: 1000,
+            author: 3,
+            picture: 'Adventures_of_sherlock_holmes.jpg'
         }
+
     ];
 
     return (
