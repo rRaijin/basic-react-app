@@ -4,7 +4,31 @@ const BookDetail = (props) => {
     // {id: 4, title: 'Детектив'} - g
     // genre: [1, 2, 3], => item.genre
     const filteredGenres = genres.filter(g => item.genre.indexOf(g.id) !== -1);
-    const filteredAuthors = authors.filter(a => item.genre.indexOf(a.id) !== -1);
+
+    // variant 1
+    const authors1 = [
+        {
+            id: 1,
+            firstName: 'Марк',
+            lastName: 'Твен'
+        },
+        {
+            id: 2,
+            firstName: 'author'
+        },
+        {
+            id: 3,
+            firstName: 'Артур',
+            lastName: 'Конан Дойл'
+        }
+    ];
+    // внутри filter, в скобочках справа от стрелки стоит условие, возвращает boolean
+    // filter возвращает отфильтрованный массив
+    // const bookAuthor = authors.filter(a => a.id === 1)
+    const bookAuthor1 = authors.filter(k => k.id === item.author)[0];
+    console.log('bookAuthor1: ', bookAuthor1);
+    const bookAuthor2 = authors.find(k => k.id === item.author);
+    console.log('bookAuthor2: ', bookAuthor2);
 
     return (
         <div className=''>
@@ -34,15 +58,7 @@ const BookDetail = (props) => {
             <div className='bold'>
                 <div>
                     Автор: 
-                    {          
-                        filteredAuthors.map((authors, index) => {
-                            return (
-                                <li className='card-item' key={`authors_${index}`}>
-                                    {authors.firstName} {authors.lastName}
-                                </li>
-                            )
-                        })
-                    }
+                    {bookAuthor1.firstName} {bookAuthor1.lastName}
                 </div>     
                 
             </div>

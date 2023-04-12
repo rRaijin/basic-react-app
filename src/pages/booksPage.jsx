@@ -50,7 +50,6 @@ const BookPage = () => {
             author: 3,
             picture: 'Adventures_of_sherlock_holmes.jpg'
         }
-
     ];
 
     return (
