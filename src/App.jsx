@@ -11,7 +11,7 @@ import MainPageHead from './components/MainPageHead';
 import BookPage from './pages/booksPage';
 
 
-console.log('menu: ', faHouse);
+// console.log('menu: ', faHouse);
 const homeworkTitle1 = 'Homework 1'
 
     // const genres = [

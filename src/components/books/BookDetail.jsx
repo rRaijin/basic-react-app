@@ -12,8 +12,31 @@ const BookDetail = (props) => {
     // const bookAuthor1 = authors.filter(k => k.id === item.author)[0];
     // console.log('bookAuthor1: ', bookAuthor1);
     const bookAuthor2 = authors.find(k => k.id === item.author);
-    console.log('bookAuthor2: ', bookAuthor2);
+    // console.log('bookAuthor2: ', bookAuthor2);
     // const bookStars = stars.find(s => s.id === item.star);
+
+
+    // *****ДОМАШНЕЕ ЗАДАНИЕ***** ==> Решение писать под каждой задачей и выводить результат в консоль, как показано на 1м упражнении
+    const task1 = [1, 'a', 5, null, false, 46, 1];
+    // Задача 1 - Из массива - task1 - вернуть массив с числом 1
+    // Решение:
+    const solution_1 = task1.filter(x => x === 1);
+    console.log('solution_1: ', solution_1);
+
+    // Задача 2 - Из массива - task1 - вернуть массив только чисел
+
+    // Задача 3 - Из массива - task1 - вернуть массив только чисел и строк
+
+    const myObjects = [1, 'a', {a: 1, b: 'cat'}, {}, {}, {a: 2, b: 45, c: 11}, {a: 1}];
+    // Задача 4 - Из массива - myObjects - вернуть массив объектов
+
+    // Задача 5 - Из массива - myObjects - вернуть массив НЕ ПУСТЫХ объектов
+
+    // Задача 6 - Из массива - myObjects - вернуть массив объектов, у которых больше 2х свойств
+    // материал для задачи 6 -> https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+
+    // Задача 7 - Из массива - myObjects - НАЙТИ объект, у которого для одного из свойств значение 'cat'
+    // материал для задачи 7 -> https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/values
 
 
     return (

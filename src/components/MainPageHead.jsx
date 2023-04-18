@@ -1,5 +1,5 @@
 function MainPageHead123 (props) {
-    console.log('props: ', props);
+    // console.log('props: ', props);
 
     return (
         <div className='my-header'>
