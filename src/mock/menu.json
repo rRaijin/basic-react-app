@@ -9,5 +9,33 @@
     "myVar1": 42,
     "sx": {
         "a": 1
-    }
+    },
+    "genres": [
+        {"id": 1, "title": "Роман"},    
+        {"id": 2, "title": "Детская литература"},
+        {"id": 3, "title": "Сатира"},
+        {"id": 4, "title": "Детектив"}
+    ],
+
+    "authors": [
+        {
+            "id": 1,
+            "firstName": "Марк",
+            "lastName": "Твен"
+        },
+        {
+            "id": 2,
+            "firstName": "author"
+        },
+        {
+            "id": 3,
+            "firstName": "Артур",
+            "lastName": "Конан Дойл"
+        },
+        {
+            "id": 4,
+            "firstName": "Элинор",
+            "lastName": "Портер"
+        }
+    ]
 }

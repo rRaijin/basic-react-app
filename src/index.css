@@ -46,10 +46,37 @@ code {
 }
 
 .card-item {
-  background-color: blueviolet;
+  color: black;
+  /* background-color: blueviolet; */
   padding: 5px;
-  border: 2px solid black;
+  flex-direction: column;
+  color: #41B3A3;
+  /* border: 2px solid black; */
   /* margin-bottom: 220px; */
+}
+
+.text-turquoise {
+  color: #41B3A3;
+}
+
+.text-light-pink {
+  color: #ca889d;
+}
+
+.text-light-orange {
+  color: #E27D60;
+}
+
+.font-family-cursive {
+  font-family: cursive;
+}
+
+.ml-11p {
+  margin-left: 11%;
+}
+
+.w-1p {
+  width: 1%;
 }
 
 .mt-240 {

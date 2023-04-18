@@ -14,6 +14,35 @@ import BookPage from './pages/booksPage';
 console.log('menu: ', faHouse);
 const homeworkTitle1 = 'Homework 1'
 
+    // const genres = [
+    //     {id: 1, title: 'Роман'},
+    //     {id: 2, title: 'Детская литература'},
+    //     {id: 3, title: 'Сатира'},
+    //     {id: 4, title: 'Детектив'}
+    // ];
+
+    // const authors = [
+    //     {
+    //         id: 1,
+    //         firstName: 'Марк',
+    //         lastName: 'Твен'
+    //     },
+    //     {
+    //         id: 2,
+    //         firstName: 'author'
+    //     },
+    //     {
+    //         id: 3,
+    //         firstName: 'Артур',
+    //         lastName: 'Конан Дойл'
+    //     },
+    //     {
+    //         id: 4,
+    //         firstName: 'Элинор',
+    //         lastName: 'Портер'
+    //     }
+    // ];
+
 // homework
 // spin?: boolean
 // spinPulse?: boolean

@@ -1,4 +1,5 @@
 import BookDetail from "../components/books/BookDetail";
+import menu1 from "../mock/menu.json";
 
 const BookPage = () => {
     const genres = [
@@ -7,6 +8,39 @@ const BookPage = () => {
         {id: 3, title: 'Сатира'},
         {id: 4, title: 'Детектив'}
     ];
+
+    const stars = [
+        {
+            id: 1,
+            picture: 'star.png'
+        },
+        {
+            id: 2,
+            picture: 'star.png',
+            picture: 'star.png'
+        },
+        {
+            id: 3,
+            picture: 'star.png',
+            picture: 'star.png',
+            picture: 'star.png'
+        },
+        {
+            id: 4,
+            picture: 'star.png',
+            picture: 'star.png',
+            picture: 'star.png',
+            picture: 'star.png'
+        },
+        {
+            id: 5,
+            picture: 'star.png',
+            picture: 'star.png',
+            picture: 'star.png',
+            picture: 'star.png',
+            picture: 'star.png'
+        }
+    ]
 
     const authors = [
         {
@@ -22,6 +56,11 @@ const BookPage = () => {
             id: 3,
             firstName: 'Артур',
             lastName: 'Конан Дойл'
+        },
+        {
+            id: 4,
+            firstName: 'Элинор',
+            lastName: 'Портер'
         }
     ];
 
@@ -32,7 +71,8 @@ const BookPage = () => {
             genre: [1, 2, 3],
             price: 500,
             author: 1,
-            picture: 'tom_soyer.jpg'
+            picture: 'tom_soyer.jpg',
+            star: 1
         },
         {
             bookName: 'Детектив-1',
@@ -49,6 +89,14 @@ const BookPage = () => {
             price: 1000,
             author: 3,
             picture: 'Adventures_of_sherlock_holmes.jpg'
+        },
+        {
+            bookName: 'Поллианна',
+            year: 1913,
+            genre: [1,2],
+            price: 500,
+            author: 4,
+            picture: 'poliana.jpg'
         }
     ];
 
@@ -61,7 +109,8 @@ const BookPage = () => {
                             item={book}
                             key={`book_${index}`}
                             genres={genres}
-                            authors={authors}/>
+                            authors={authors}
+                            stars={stars}/>
                     )
                 })
             }
