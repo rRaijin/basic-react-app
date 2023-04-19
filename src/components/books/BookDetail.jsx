@@ -25,19 +25,44 @@ const BookDetail = (props) => {
 
     // Задача 2 - Из массива - task1 - вернуть массив только чисел
 
+    // Решение:
+        const task1FilteredNambers = task1.filter(x => typeof x === "number")
+        console.log('task1FilteredNambers:',task1FilteredNambers)
     // Задача 3 - Из массива - task1 - вернуть массив только чисел и строк
+
+    // const task1FilteredNambersAndString = task1.filter(x => x === 'number','string')
+    // console.log('task1FilteredNambersAndString:',task1FilteredNambersAndString)
 
     const myObjects = [1, 'a', {a: 1, b: 'cat'}, {}, {}, {a: 2, b: 45, c: 11}, {a: 1}];
     // Задача 4 - Из массива - myObjects - вернуть массив объектов
+    // Решение:
+    const onlyObjets = myObjects.filter(x => typeof x === 'object')
+    console.log('onlyObjets:',onlyObjets)
 
     // Задача 5 - Из массива - myObjects - вернуть массив НЕ ПУСТЫХ объектов
+    // Решение:
+    // const notEmtyObjets = myObjects.filter(x => x.length !== 3)
+    // console.log(notEmtyObjets)
+    // console.log('notEmtyObjets:',notEmtyObjets)
+//     if (Object.keys(task1).length == 0) {
+//         console.log();
+//     }
+//    const ggg = Object.keys(task1).length === 0
+//    console.log(ggg)
 
     // Задача 6 - Из массива - myObjects - вернуть массив объектов, у которых больше 2х свойств
     // материал для задачи 6 -> https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+    // Решение:
+    // console.log(Object.keys('propertyX2',propertyx2)); 
+    // const propertyx2 = Object.keys(myObjects(x => x === 'object'))
+
 
     // Задача 7 - Из массива - myObjects - НАЙТИ объект, у которого для одного из свойств значение 'cat'
     // материал для задачи 7 -> https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/values
-
+    // Решение:
+   
+    // const d = myObjects.filter(x => Object.values === 'cat')    
+    // console.log(d)
 
     return (
         <div className=''>
