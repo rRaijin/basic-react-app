@@ -21,48 +21,77 @@ const BookDetail = (props) => {
     // Задача 1 - Из массива - task1 - вернуть массив с числом 1
     // Решение:
     const solution_1 = task1.filter(x => x === 1);
-    console.log('solution_1: ', solution_1);
+    // console.log('solution_1: ', solution_1);
 
     // Задача 2 - Из массива - task1 - вернуть массив только чисел
 
     // Решение:
-        const task1FilteredNambers = task1.filter(x => typeof x === "number")
-        console.log('task1FilteredNambers:',task1FilteredNambers)
+    const task1FilteredNambers = task1.filter(x => typeof x === "number")
+    // console.log('task1FilteredNumbers: ', task1FilteredNambers);
     // Задача 3 - Из массива - task1 - вернуть массив только чисел и строк
 
-    // const task1FilteredNambersAndString = task1.filter(x => x === 'number','string')
-    // console.log('task1FilteredNambersAndString:',task1FilteredNambersAndString)
+    // const task1FilteredNambersAndString = task1.filter(x => typeof x === "number" || typeof x === "string");
+
+    // метод массива, который проверяет переданный аргумент, что он состоит в этом массиве
+    const task1FilteredNambersAndString = task1.filter(x => ['number', 'string'].includes(typeof x));
+    console.log('task1FilteredNumbersAndString:',task1FilteredNambersAndString)
+
 
     const myObjects = [1, 'a', {a: 1, b: 'cat'}, {}, {}, {a: 2, b: 45, c: 11}, {a: 1}];
     // Задача 4 - Из массива - myObjects - вернуть массив объектов
     // Решение:
     const onlyObjets = myObjects.filter(x => typeof x === 'object')
-    console.log('onlyObjets:',onlyObjets)
+    // console.log('onlyObjets: ', onlyObjets);
 
     // Задача 5 - Из массива - myObjects - вернуть массив НЕ ПУСТЫХ объектов
     // Решение:
-    // const notEmtyObjets = myObjects.filter(x => x.length !== 3)
-    // console.log(notEmtyObjets)
-    // console.log('notEmtyObjets:',notEmtyObjets)
-//     if (Object.keys(task1).length == 0) {
-//         console.log();
-//     }
-//    const ggg = Object.keys(task1).length === 0
-//    console.log(ggg)
+    // Итерироваться могут только строки и массивы, следовательно только они имееют свойство length 
+    const notEmptyObjects = myObjects.filter(x => typeof x === 'object' && Object.keys(x).length != 0);
+    // const a = {a: 1, b: 'cat'}
+    // console.log('x', a.length)
+    // console.log('notEmtyObjects: ', notEmptyObjects);
 
     // Задача 6 - Из массива - myObjects - вернуть массив объектов, у которых больше 2х свойств
     // материал для задачи 6 -> https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
     // Решение:
-    // console.log(Object.keys('propertyX2',propertyx2)); 
-    // const propertyx2 = Object.keys(myObjects(x => x === 'object'))
+    // const myObjects = [1, 'a', {a: 1, b: 'cat'}, {}, {}, {a: 2, b: 45, c: 11}, {a: 1}];
+    // [1, 'cat']
+    const myArr1 = myObjects.filter(p => typeof p === 'object' && Object.values(p).length > 2);
+    console.log('myArr1: ', myArr1);
+    // *** typeof вернет строковое представление типа переменной
+    // И ТОЛЬКО когда выполняется условие слева от оператора лог. "и" (&&) тогда идет проверка правой части
+
+    // const valA = () => 4 - 3;
+    // const valB = () => 1 + 1;
+    // // const y = () => ({a: 1, b: 2}); // возвращает объект
+    // const y = () => ({a: valA(), b: valB()}); // возвращает объект
+    // const propertyx2 = Object.keys(y()); // сначала выполняется внутренняя ф-я y(), потом родительская
+    // function myPPP() {return 'kolbasa'} // объявление
+    // console.log('my function call 1: ', myPPP()); // вызов
+    // console.log('my function call 2: ', myPPP); // ???
+    // console.log('propertyX2 : ', propertyx2);
+    // const propertyY2 = Object.values(y());
+    // console.log('propertyY2 : ', propertyY2);
+
+
+
+
+    // function propertyx1() {console.log('OK!!!')} // стандартная ф-я
+    // const propertyx1 = () => {console.log('OK!!!')} // чистая ф-я, без контекста
 
 
     // Задача 7 - Из массива - myObjects - НАЙТИ объект, у которого для одного из свойств значение 'cat'
     // материал для задачи 7 -> https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/values
     // Решение:
-   
-    // const d = myObjects.filter(x => Object.values === 'cat')    
-    // console.log(d)
+    const d = myObjects.find(x => {
+        const isObject = typeof x === 'object'; // должен вернуть true
+        const objValues = Object.values(x);
+        const exists = objValues.indexOf('cat') !== -1; // проверяем при помощи метода indexOf что переданній аргумент является частью нашего массива [1, 'cat']
+        if (isObject && exists) {
+            return true
+        }
+    })    
+    console.log(d);
 
     return (
         <div className=''>
