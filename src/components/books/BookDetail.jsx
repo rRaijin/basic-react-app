@@ -36,12 +36,11 @@ const BookDetail = (props) => {
     const task1FilteredNambersAndString = task1.filter(x => ['number', 'string'].includes(typeof x));
     console.log('task1FilteredNumbersAndString:',task1FilteredNambersAndString)
 
-
     const myObjects = [1, 'a', {a: 1, b: 'cat'}, {}, {}, {a: 2, b: 45, c: 11}, {a: 1}];
     // Задача 4 - Из массива - myObjects - вернуть массив объектов
     // Решение:
     const onlyObjets = myObjects.filter(x => typeof x === 'object')
-    // console.log('onlyObjets: ', onlyObjets);
+    console.log('onlyObjets: ', onlyObjets);
 
     // Задача 5 - Из массива - myObjects - вернуть массив НЕ ПУСТЫХ объектов
     // Решение:
@@ -54,13 +53,12 @@ const BookDetail = (props) => {
     // Задача 6 - Из массива - myObjects - вернуть массив объектов, у которых больше 2х свойств
     // материал для задачи 6 -> https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
     // Решение:
-    // const myObjects = [1, 'a', {a: 1, b: 'cat'}, {}, {}, {a: 2, b: 45, c: 11}, {a: 1}];
-    // [1, 'cat']
     const myArr1 = myObjects.filter(p => typeof p === 'object' && Object.values(p).length > 2);
     console.log('myArr1: ', myArr1);
+
+    // ************************
     // *** typeof вернет строковое представление типа переменной
     // И ТОЛЬКО когда выполняется условие слева от оператора лог. "и" (&&) тогда идет проверка правой части
-
     // const valA = () => 4 - 3;
     // const valB = () => 1 + 1;
     // // const y = () => ({a: 1, b: 2}); // возвращает объект
@@ -73,12 +71,9 @@ const BookDetail = (props) => {
     // const propertyY2 = Object.values(y());
     // console.log('propertyY2 : ', propertyY2);
 
-
-
-
     // function propertyx1() {console.log('OK!!!')} // стандартная ф-я
     // const propertyx1 = () => {console.log('OK!!!')} // чистая ф-я, без контекста
-
+    // ************************
 
     // Задача 7 - Из массива - myObjects - НАЙТИ объект, у которого для одного из свойств значение 'cat'
     // материал для задачи 7 -> https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Object/values
@@ -92,6 +87,30 @@ const BookDetail = (props) => {
         }
     })    
     console.log(d);
+
+    // Домашнее задание 22.04.2023
+    const task3 = [
+        {
+            a: 12,
+            b: 'dog'
+        },
+        {
+            a: 'cat',
+            b: 5,
+            c: 'abc'
+        },
+        {
+            d: 90,
+            a: 'tea'
+        },
+        {
+            name: 'cat'
+        }
+    ];
+    // Задача 8: Вывести список объектов, у которых одно из свойств равно 'cat
+    // Задача 9: Вывести список объектов, у которых все свойства равны числам
+    // Задача 10: Получить объект, у которого свойство "a" равно 12
+    // Задача 11: Получить объект, у которого свойство "a" равно 15
 
     return (
         <div className=''>
