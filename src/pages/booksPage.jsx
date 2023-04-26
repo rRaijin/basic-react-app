@@ -1,7 +1,16 @@
-import BookDetail from "../components/books/BookDetail";
-import menu1 from "../mock/menu.json";
+import { useState } from 'react';
+
+import BookDetail from '../components/books/BookDetail';
+import menu1 from '../mock/menu.json';
 
 const BookPage = () => {
+    const [myInputValue, setMyInputValue] = useState('');
+
+    const myChangeHandler = (e) => {
+        console.log('dt: ', e);
+        setMyInputValue(e.target.value);
+    }
+
     const genres = [
         {id: 1, title: 'Роман'},
         {id: 2, title: 'Детская литература'},
@@ -66,7 +75,7 @@ const BookPage = () => {
 
     const books = [
         {
-            bookName: 'Приключе́ния То́ма Со́йера',
+            bookName: 'Приключения Тома Сойера',
             year: 1876,
             genre: [1, 2, 3],
             price: 500,
@@ -78,7 +87,7 @@ const BookPage = () => {
             bookName: 'Детектив-1',
             year: 2000,
             genre: [1, 4],
-            price: 1000,
+            price: 2000,
             author: 2,
             picture: 'starvi.webp'
         },
@@ -86,24 +95,41 @@ const BookPage = () => {
             bookName: 'Приключения Шерлока Холмса',
             year: 1892,
             genre: [4],
-            price: 1000,
+            price: 800,
             author: 3,
             picture: 'Adventures_of_sherlock_holmes.jpg'
         },
         {
             bookName: 'Поллианна',
             year: 1913,
-            genre: [1,2],
-            price: 500,
+            genre: [1, 2],
+            price: 1000,
             author: 4,
             picture: 'poliana.jpg'
         }
     ];
 
+    // const filteredArray1 = books.filter(b => b.bookName === myInputValue || myInputValue === '');
+    
+    // Задача 1: добавить еще одно поле для фильтра, и возвращать список книг только по его результатам, фильтр по цене -
+    // показать результаты, которые дешевле, чем введенное число
+
+    // Задача 2: добавить еще одно поле по цене (т.е. это уже 3 поля у нас будет - поиск по названию, по цене - дешевле, 
+    // чем введенное значение, ОБРАТИТЬ ВНИМАНИЕ КАКОЙ МАССИВ МАПАЕТСЯ), фильтр должен учитывать 2(!) условия по цене, в
+    // первом поле вводится нижняя цена, во втором - верхняя, выводим книги в этом диапазоне
+
+    // ***Задача 3: условие объединяет все 3 поля, т.е. и по цене и по названию.
+    
+    const filteredByBookname = books.filter(b => b.bookName.includes(myInputValue) || myInputValue === '');
     return (
         <div className=''>
+            <input
+                type='input'
+                value={myInputValue}
+                onChange={myChangeHandler}/>
+                {/* onChange={e => setMyInputValue(e.target.value)}/> */}
             {
-                books.map((book, index) => {
+                filteredByBookname.map((book, index) => {
                     return (
                         <BookDetail
                             item={book}
