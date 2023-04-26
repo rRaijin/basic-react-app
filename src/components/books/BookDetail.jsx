@@ -108,8 +108,49 @@ const BookDetail = (props) => {
         }
     ];
     // Задача 8: Вывести список объектов, у которых одно из свойств равно 'cat
+    const findCat = task3.filter(x => {
+        const isObject = typeof x === 'object'; 
+        const objValues = Object.values(x);
+        const exists = objValues.indexOf('cat') !== -1; 
+        if (isObject && exists) {
+            return true
+        }
+    })    
+    console.log('cat: ',findCat);
     // Задача 9: Вывести список объектов, у которых все свойства равны числам
+    const findNumber = task3.filter(x => {
+        const isObjectx = typeof x === 'object'; // должен вернуть true
+        const objValues = Object.values(x);
+        const exists = objValues.indexOf(x) !== -1; // проверяем при помощи метода indexOf что переданній аргумент является частью нашего массива [1, 'cat']
+        if (isObjectx && exists) {
+            return true
+        }
+    })    
+    console.log('number: ',findNumber);
+    const findNumber1 = task3.filter(x => typeof Object.keys(x) === 'number');
+    console.log('findNumber: ', findNumber1);
+
+    // {
+    //     a: 12,
+    //     b: 'dog'
+    // },
+    // {
+    //     a: 'cat',
+    //     b: 5,
+    //     c: 'abc'
+    // },
+    // {
+    //     d: 90,
+    //     a: 'tea'
+    // },
+    // {
+    //     name: 'cat'
+    // }
+
     // Задача 10: Получить объект, у которого свойство "a" равно 12
+    const findNumber2 = task3.find(x => Object.values(x === 12));
+    console.log('findNumber: ', findNumber2);
+
     // Задача 11: Получить объект, у которого свойство "a" равно 15
 
     return (
