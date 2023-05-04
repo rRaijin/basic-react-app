@@ -4,11 +4,27 @@ import BookDetail from '../components/books/BookDetail';
 import menu1 from '../mock/menu.json';
 
 const BookPage = () => {
-    const [myInputValue, setMyInputValue] = useState('');
+    const [myInputName, setMyInputName] = useState('');
+    const myChangeHandlerName = (e) => {
+        // console.log('dt: ', e);
+        setMyInputName(e.target.value);
+    }
 
-    const myChangeHandler = (e) => {
-        console.log('dt: ', e);
-        setMyInputValue(e.target.value);
+    // В квадратных скобках указывается 2 элемента -> 1й - это единица состояния, а 2я - установщик(изменяет)
+    const [myInputPriceMin, setMyInputPriceMin] = useState(0);
+    const myChangeHandlerPriceMin = (e) => {
+        setMyInputPriceMin(e.target.value);
+    }
+
+    const [myInputPriceMax, setMyInputPriceMax] = useState(10000);
+    const myChangeHandlerPriceMax = (e) => {
+        setMyInputPriceMax(e.target.value);
+    }
+
+    const [selectedGenre, setSelectedGenre] = useState(null);
+    const mySelect = (e) => {
+        console.log('dt: ', e.target.value);
+        setSelectedGenre(e.target.value);
     }
 
     const genres = [
@@ -113,30 +129,74 @@ const BookPage = () => {
     
     // Задача 1: добавить еще одно поле для фильтра, и возвращать список книг только по его результатам, фильтр по цене -
     // показать результаты, которые дешевле, чем введенное число
+    // const filteredByPrice = books.filter(x => {
+    //     // console.log('debug: ', books.price, x.price > books.price)
+    //     return x.price < myInputPrice;
+    // });
 
     // Задача 2: добавить еще одно поле по цене (т.е. это уже 3 поля у нас будет - поиск по названию, по цене - дешевле, 
     // чем введенное значение, ОБРАТИТЬ ВНИМАНИЕ КАКОЙ МАССИВ МАПАЕТСЯ), фильтр должен учитывать 2(!) условия по цене, в
     // первом поле вводится нижняя цена, во втором - верхняя, выводим книги в этом диапазоне
+    // const filteredByPrice = books.filter(x => {
+    //     return x.price > myInputPriceMin && x.price < myInputPriceMax;
+    // });
 
     // ***Задача 3: условие объединяет все 3 поля, т.е. и по цене и по названию.
+    const filteredBooks = books.filter(x => {
+        // console.log('x', x.genre, typeof selectedGenre)
+        return (
+            x.price > myInputPriceMin && // цена больше чем указанная
+            x.price < myInputPriceMax && // цена меньше чем указанная
+            (x.bookName.includes(myInputName) || myInputName === '') && // название включает в себя данные буквы
+            (Number(selectedGenre) === 0 || x.genre.indexOf(Number(selectedGenre)) !== -1)
+        )
+    });
+
     
-    const filteredByBookname = books.filter(b => b.bookName.includes(myInputValue) || myInputValue === '');
-    const filteredByPrice = books.filter(x => x.price > books.price);
+
+    console.log('state name: ', myInputName);
+    console.log('state price min: ', myInputPriceMin);
+    console.log('state price max: ', myInputPriceMax);
+    console.log('props books: ', selectedGenre);
+
     return (
         <div className=''>
+            <label>Filter by name:</label>
             <input
                 type='input'
-                value={myInputValue}
-                onChange={myChangeHandler}/>
-            <input
-                type='input'
-                onChange={myChangeHandler}
-            />
-                {/* onChange={e => setMyInputValue(e.target.value)}/> */}
-            {
-                filteredByBookname.map((book, index) => {
-                // filteredByPrice.map(book, index) 
+                value={myInputName}
+                onChange={myChangeHandlerName}/>
 
+            <label>Filter by price:</label>
+            <input
+                type='number'
+                // min={0}
+                // max={5000}
+                value={myInputPriceMin}
+                onChange={myChangeHandlerPriceMin}/>
+            <input
+                type='number'
+                value={myInputPriceMax}
+                onChange={myChangeHandlerPriceMax}/>
+
+
+            <select name="select" onChange={mySelect}>
+                {
+                    genres.map(((g, i) => {
+                        return (
+                            <option value={g.id} key={`genre-${i}`}>
+                                {g.title}
+                            </option>
+                        )
+                    }))
+                }
+                <option value={0} key={`genre-${genres.length + 1}`}>
+                    All
+                </option>
+            </select>
+
+            {
+                filteredBooks.map((book, index) => { 
                     return (
                         <BookDetail
                             item={book}
