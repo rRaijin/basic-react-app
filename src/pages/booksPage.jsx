@@ -92,6 +92,7 @@ const BookPage = () => {
     const books = [
         {
             bookName: 'Приключения Тома Сойера',
+            description: 'Какое-то описание книги',
             year: 1876,
             genre: [1, 2, 3],
             price: 500,
@@ -101,6 +102,7 @@ const BookPage = () => {
         },
         {
             bookName: 'Детектив-1',
+            description: 'Какое-то описание книги',
             year: 2000,
             genre: [1, 4],
             price: 2000,
@@ -109,6 +111,7 @@ const BookPage = () => {
         },
         {
             bookName: 'Приключения Шерлока Холмса',
+            description: 'Супер описание книги',
             year: 1892,
             genre: [4],
             price: 800,
@@ -117,6 +120,7 @@ const BookPage = () => {
         },
         {
             bookName: 'Поллианна',
+            description: 'Обычное описание книги',
             year: 1913,
             genre: [1, 2],
             price: 1000,
@@ -152,6 +156,15 @@ const BookPage = () => {
         )
     });
 
+    // Задача 4: Вывести все книги, у которых есть хотя бы один жанр из массива myStrArr
+    const myStrArr = [1, 2, null, {}, 'abc', 'zxc', 'cat'];
+    // const myBooks = books.filter();
+
+    // Задача 5: Вывести одну книгу, у которой название начинается с "Приключения"
+    // const myBook =
+
+    // ***Задача 6: Вывести список книг, у которых в описании(поле "description") есть слово "супер" без учета регистра(загуглить что такое toLowerCase())
+    // const filteredBooks = 
     
 
     console.log('state name: ', myInputName);
