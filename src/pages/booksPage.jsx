@@ -121,15 +121,22 @@ const BookPage = () => {
     // ***Задача 3: условие объединяет все 3 поля, т.е. и по цене и по названию.
     
     const filteredByBookname = books.filter(b => b.bookName.includes(myInputValue) || myInputValue === '');
+    const filteredByPrice = books.filter(x => x.price > books.price);
     return (
         <div className=''>
             <input
                 type='input'
                 value={myInputValue}
                 onChange={myChangeHandler}/>
+            <input
+                type='input'
+                onChange={myChangeHandler}
+            />
                 {/* onChange={e => setMyInputValue(e.target.value)}/> */}
             {
                 filteredByBookname.map((book, index) => {
+                // filteredByPrice.map(book, index) 
+
                     return (
                         <BookDetail
                             item={book}
