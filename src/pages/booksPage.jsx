@@ -158,14 +158,24 @@ const BookPage = () => {
 
     // Задача 4: Вывести все книги, у которых есть хотя бы один жанр из массива myStrArr
     const myStrArr = [1, 2, null, {}, 'abc', 'zxc', 'cat'];
-    // const myBooks = books.filter();
+    const myBooks = books.filter(book => {
+        return book.genre.some(g => myStrArr.includes(g))
+    })
+    console.log('myBooks:  ', myBooks)
 
     // Задача 5: Вывести одну книгу, у которой название начинается с "Приключения"
-    // const myBook =
+    const myBook = books.filter(book => 
+        book.bookName.includes('Приключения')
+    );
+
+    console.log('myBook:  ',myBook[0]);
 
     // ***Задача 6: Вывести список книг, у которых в описании(поле "description") есть слово "супер" без учета регистра(загуглить что такое toLowerCase())
-    // const filteredBooks = 
-    
+    const filteredBooks1 = books.filter((x) =>  {
+        const toLowerCaseDes = x.description.toLowerCase()
+        return toLowerCaseDes.includes('супер')
+    })
+    console.log('filteredBooks  ',filteredBooks1)
 
     console.log('state name: ', myInputName);
     console.log('state price min: ', myInputPriceMin);
