@@ -102,6 +102,7 @@ const BookPage = () => {
         },
         {
             bookName: 'Детектив-1',
+            // description: null,
             description: 'Какое-то описание книги',
             year: 2000,
             genre: [1, 4],
@@ -129,58 +130,19 @@ const BookPage = () => {
         }
     ];
 
-    // const filteredArray1 = books.filter(b => b.bookName === myInputValue || myInputValue === '');
-    
-    // Задача 1: добавить еще одно поле для фильтра, и возвращать список книг только по его результатам, фильтр по цене -
-    // показать результаты, которые дешевле, чем введенное число
-    // const filteredByPrice = books.filter(x => {
-    //     // console.log('debug: ', books.price, x.price > books.price)
-    //     return x.price < myInputPrice;
-    // });
-
-    // Задача 2: добавить еще одно поле по цене (т.е. это уже 3 поля у нас будет - поиск по названию, по цене - дешевле, 
-    // чем введенное значение, ОБРАТИТЬ ВНИМАНИЕ КАКОЙ МАССИВ МАПАЕТСЯ), фильтр должен учитывать 2(!) условия по цене, в
-    // первом поле вводится нижняя цена, во втором - верхняя, выводим книги в этом диапазоне
-    // const filteredByPrice = books.filter(x => {
-    //     return x.price > myInputPriceMin && x.price < myInputPriceMax;
-    // });
-
-    // ***Задача 3: условие объединяет все 3 поля, т.е. и по цене и по названию.
     const filteredBooks = books.filter(x => {
-        // console.log('x', x.genre, typeof selectedGenre)
         return (
-            x.price > myInputPriceMin && // цена больше чем указанная
-            x.price < myInputPriceMax && // цена меньше чем указанная
-            (x.bookName.includes(myInputName) || myInputName === '') && // название включает в себя данные буквы
+            x.price > myInputPriceMin &&
+            x.price < myInputPriceMax &&
+            (x.bookName.includes(myInputName) || myInputName === '') &&
             (Number(selectedGenre) === 0 || x.genre.indexOf(Number(selectedGenre)) !== -1)
         )
     });
 
-    // Задача 4: Вывести все книги, у которых есть хотя бы один жанр из массива myStrArr
-    const myStrArr = [1, 2, null, {}, 'abc', 'zxc', 'cat'];
-    const myBooks = books.filter(book => {
-        return book.genre.some(g => myStrArr.includes(g))
-    })
-    console.log('myBooks:  ', myBooks)
-
-    // Задача 5: Вывести одну книгу, у которой название начинается с "Приключения"
-    const myBook = books.filter(book => 
-        book.bookName.includes('Приключения')
-    );
-
-    console.log('myBook:  ',myBook[0]);
-
-    // ***Задача 6: Вывести список книг, у которых в описании(поле "description") есть слово "супер" без учета регистра(загуглить что такое toLowerCase())
-    const filteredBooks1 = books.filter((x) =>  {
-        const toLowerCaseDes = x.description.toLowerCase()
-        return toLowerCaseDes.includes('супер')
-    })
-    console.log('filteredBooks  ',filteredBooks1)
-
-    console.log('state name: ', myInputName);
-    console.log('state price min: ', myInputPriceMin);
-    console.log('state price max: ', myInputPriceMax);
-    console.log('props books: ', selectedGenre);
+    // console.log('state name: ', myInputName);
+    // console.log('state price min: ', myInputPriceMin);
+    // console.log('state price max: ', myInputPriceMax);
+    // console.log('props books: ', selectedGenre);
 
     return (
         <div className=''>
