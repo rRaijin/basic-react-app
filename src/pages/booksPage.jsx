@@ -139,6 +139,45 @@ const BookPage = () => {
         )
     });
 
+    // ***PART 5***
+    const part5 = [
+        {
+            a: 1,
+            b: {
+                a: 1,
+                b: 'dog'
+            }
+        }, {
+            a: 'dog',
+            b: 12
+        }
+    ];
+    // Задача 18: Найти объект, у которого значением свойства является другой объект со значением 'dog'
+    // Решение:
+    // const solution_18 = 
+
+    const part5_1 = [
+        {x: 1, y: 'abc', z: null},
+        42,
+        'house',
+        {a: 'dog'}
+    ];
+    // Задача 19: У нас есть 2 массива part5 и part5_1. Нужно вернуть массив, состоящий из элементов, у которых значение a равно dog
+    // Подсказка: массивы сперва нужно объединить, а затем применить фильтр
+    // Материал для д/з: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
+    // const solution_19 = 
+
+    const arr1 = [1, 2, 3];
+    const arr2 = [2, 4, 5];
+    // Задача 20: Учимся гуглить. Нужно из двух массивов(arr1, arr2) получить один массив, состоящий из уникальных элементов
+    // Решение:
+    // const solution_20 =
+
+    // Задача 21: объединить массивы part5 и arr1, и сделать так чтобы первым элементом нового массива(т.е. индекс = 0) была число 3
+
+
+    
+
     // console.log('state name: ', myInputName);
     // console.log('state price min: ', myInputPriceMin);
     // console.log('state price max: ', myInputPriceMax);
