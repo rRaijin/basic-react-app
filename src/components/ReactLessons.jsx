@@ -233,9 +233,13 @@ export default (props) => {
             b: 12
         }
     ];
+
     // Задача 18: Найти объект, у которого значением свойства является другой объект со значением 'dog'
     // Решение:
-    // const solution_18 = 
+    const solution_18 = part5.find(obj => {
+        return typeof obj.b === 'object' && obj.b.b === 'dog';
+    })
+    // console.log('solution_18  ', solution_18);
 
     const part5_1 = [
         {x: 1, y: 'abc', z: null},
@@ -243,17 +247,34 @@ export default (props) => {
         'house',
         {a: 'dog'}
     ];
+
     // Задача 19: У нас есть 2 массива part5 и part5_1. Нужно вернуть массив, состоящий из элементов, у которых значение a равно dog
     // Подсказка: массивы сперва нужно объединить, а затем применить фильтр
     // Материал для д/з: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
-    // const solution_19 = 
+    const solution_19 = part5.concat(part5_1);
+    const filteredArrayDog = solution_19.filter(d => d.a === 'dog');
+    // console.log('filteredArrayDog:  ', filteredArrayDog);
 
     const arr1 = [1, 2, 3];
     const arr2 = [2, 4, 5];
+
     // Задача 20: Учимся гуглить. Нужно из двух массивов(arr1, arr2) получить один массив, состоящий из уникальных элементов
     // Решение:
-    // const solution_20 =
+    const myConcatedArr = arr1.concat(arr2);
+    const mySet = new Set(myConcatedArr);
+    // const x = [1, 2, 3];
+    // const y = [...x];
+    // x.push(4);
+    // y.pop();
+    // console.log('x: ', x, 'y: ', y);
+    const solution_20 = [...mySet]; // [...new Set(arr1.concat(arr2))]
+    // console.log('solution_20  ',solution_20)
 
     // Задача 21: объединить массивы part5 и arr1, и сделать так чтобы первым элементом нового массива(т.е. индекс = 0) была число 3
+    const solution_21 = arr1.concat(part5);
+    solution_21.unshift(3);
+    console.log('solution_21  ',solution_21)
+    // const conct2 = arr1.reverse().concat(part5);
+
     return <div>Lessons</div>
 }
