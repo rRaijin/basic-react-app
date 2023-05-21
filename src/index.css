@@ -33,6 +33,10 @@ code {
   border: 0;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .flex {
     display: flex;
 }
@@ -110,6 +114,10 @@ code {
   width: 15%;
 }
 
+.w-20p {
+  width: 20%;
+}
+
 .mt-30px {
   margin-top: 30px;
 }
@@ -135,4 +143,12 @@ code {
 
 .brd-radius-7px {
   border-radius: 7px;
+}
+
+.back-white {
+  background: #ffffff;
+}
+
+.w-2p {
+  width: 2%;
 }

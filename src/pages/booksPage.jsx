@@ -99,7 +99,8 @@ const BookPage = () => {
             price: 500,
             author: 1,
             picture: 'tom_soyer.jpg',
-            star: 1
+            star: 1,
+            link: 'TomSoyer.jsx'
         },
         {
             bookName: 'Детектив-1',
@@ -155,13 +156,13 @@ const BookPage = () => {
         <div className=''>
             <Blink/>
 
-            <label>Filter by name:</label>
-            <input
+            <label>Я шукаю:</label>
+            <input className='w-20p0'
                 type='input'
                 value={myInputName}
                 onChange={myChangeHandlerName}/>
 
-            <label>Filter by price:</label>
+            <label>Ціна:</label>
             <input
                 type='number'
                 // min={0}
