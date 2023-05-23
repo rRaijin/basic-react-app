@@ -32,7 +32,10 @@ const BookPage = () => {
         {id: 1, title: 'Роман'},
         {id: 2, title: 'Детская литература'},
         {id: 3, title: 'Сатира'},
-        {id: 4, title: 'Детектив'}
+        {id: 4, title: 'Детектив'},
+        {id: 5, title: 'Приключенческая художественная литература'},
+        {id: 6, title: 'Научная фантастика'},
+        {id: 7, title: 'Новелла'}
     ];
 
     const stars = [
@@ -87,6 +90,21 @@ const BookPage = () => {
             id: 4,
             firstName: 'Элинор',
             lastName: 'Портер'
+        },
+        {
+            id: 5,
+            firstName: 'Роберт',
+            lastName: 'Льюис Стивенсон'
+        },
+        {
+            id: 6,
+            firstName: 'Жуль',
+            lastName: 'Верн'
+        },
+        {
+            id: 7, 
+            firstName: 'Антуан де',
+            lastName: 'Сент-Экзюпери'
         }
     ];
 
@@ -129,6 +147,42 @@ const BookPage = () => {
             price: 1000,
             author: 4,
             picture: 'poliana.jpg'
+        },
+        {
+            bookName: 'Остров Сокровищ',
+            // description: 'роман шотландского писателя Роберта Стивенсона о приключениях, связанных с поиском сокровищ, спрятанных капитаном Флинтом на необитаемом острове.',
+            year: 1883,
+            genre: [1, 2],
+            price: 400,
+            author: 5,
+            picture: 'treasureIsland.jpg'
+        },
+        {
+            bookName: 'Пять недель на воздушном шаре',
+            description: 'Первый приключенческий роман Жюля Верна.',
+            year: 1863,
+            genre: [1, 5],
+            price: 500,
+            author: 6,
+            picture: 'Five_weeks_in_a_hot_air_balloon.jpg'
+        },
+        {
+            bookName: 'Двадцать тысяч льё под водой',
+            description: 'Профессор Аронакс и его друзья волею судьбы оказываются на борту подводного судна «Наутилус», которым управляет загадочный капитан Немо.',
+            year: 1870,
+            genre: [1, 6],
+            price: 300,
+            author: 6,
+            picture: 'twenty_thousand_leagues_under_the_sea.jpg'
+        },
+        {
+            bookName: 'Маленький принц',
+            description: 'Сказка рассказывает о Маленьком принце, который посещает различные планеты в космосе, включая Землю. Книга обращается к темам одиночества, дружбы, любви и утраты.',
+            year: 1943,
+            genre: [2, 7],
+            price: 349,
+            author: 7,
+            picture: 'a_little_prince.jpg'
         }
     ];
 

@@ -20,6 +20,15 @@ class MyComponent extends Component {
         const x = 45;
     }
 
+// class MyComponentHeart extends Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//             Heart: 'https://e7.pngegg.com/pngimages/725/818/png-clipart-heart-simple-red-people-heart-outline.png'
+//         }
+//     }
+// }
+
 
 
     // UNSAFE_componentWillMount() {
