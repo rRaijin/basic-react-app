@@ -3,6 +3,7 @@ import { useState } from 'react';
 import BookDetail from '../components/books/BookDetail';
 import menu1 from '../mock/menu.json';
 import Blink from '../components/books/Blink';
+import MyInputComponent from '../components/books/MyInput';
 
 const BookPage = () => {
     const [myInputName, setMyInputName] = useState('');
@@ -209,6 +210,9 @@ const BookPage = () => {
     return (
         <div className=''>
             <Blink/>
+
+            <MyInputComponent/>
+
 
             <label>Я шукаю:</label>
             <input className='w-20p0'

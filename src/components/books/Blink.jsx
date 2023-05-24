@@ -1,4 +1,5 @@
 import { Component } from "react";
+import MyInputComponent from "./MyInput";
 
 // const [myInputName, setMyInputName] = useState('');
 
@@ -12,7 +13,6 @@ class MyComponent extends Component {
             position: 1,
             animal: null,
             a: 0,
-            iphone: 11,
             Heart: 'https://e7.pngegg.com/pngimages/725/818/png-clipart-heart-simple-red-people-heart-outline.png'
 
         }
@@ -78,15 +78,9 @@ class MyComponent extends Component {
         })
     }
 
-    IphoneClick = () => {
-        this.setState({
-            iphone: 12
-        })
-    }
-
     HeartClick = () => {
         const newHeart = this.state.Heart === 'https://e7.pngegg.com/pngimages/725/818/png-clipart-heart-simple-red-people-heart-outline.png' ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png' : 'https://e7.pngegg.com/pngimages/725/818/png-clipart-heart-simple-red-people-heart-outline.png'
-        this.setState({Heart : newHeart})
+        this.setState({Heart : newHeart});
     }
 
 
@@ -114,15 +108,15 @@ class MyComponent extends Component {
                 <button onClick={this.handleClick}>
                     Купить
                 </button>
-                <button onClick={this.IphoneClick}>
-                    Iphone 
-                </button>
+                <MyInputComponent/>
+
+                
+
                 <div>
                     <button className="border-0 back-white " onClick={this.HeartClick}>
                         изменить
                         <img className="w-2p" src={this.state.Heart} alt="" />
                     </button>
-                    
                 </div>
             </div>
         )
