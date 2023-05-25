@@ -1,5 +1,6 @@
 import { Component } from "react";
 import MyInputComponent from "./MyInput";
+import MyComponentSome3 from "./Some3";
 
 // const [myInputName, setMyInputName] = useState('');
 
@@ -11,7 +12,6 @@ class MyComponent extends Component {
         super();
         this.state = {
             position: 1,
-            animal: null,
             a: 0,
             Heart: 'https://e7.pngegg.com/pngimages/725/818/png-clipart-heart-simple-red-people-heart-outline.png'
 
@@ -56,15 +56,6 @@ class MyComponent extends Component {
         console.log('st: ', this)
     }
 
-    some3 = () => {
-        // console.log('st: ', this);
-        this.setState({
-            animal: 'cat'
-        });
-
-        // setPosition(2)
-    }
-
     // если бы был фугкциональный компонент
     // const [position, setPosition] = useState(1);
 
@@ -102,14 +93,11 @@ class MyComponent extends Component {
                 <button onClick={this.some2.bind(this)}>
                     test2
                 </button>
-                <button onClick={this.some3}>
-                    some3
-                </button>
                 <button onClick={this.handleClick}>
                     Купить
                 </button>
                 <MyInputComponent/>
-
+                <MyComponentSome3/>
                 
 
                 <div>
