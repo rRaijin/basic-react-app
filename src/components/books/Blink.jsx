@@ -83,6 +83,9 @@ class MyComponent extends Component {
         // console.log('Появление-2', this.state.position)
         console.log('this.state.animal: ', this.state.animal)
 
+        // домашняя работа
+        const myAnimal = {kind: 'cat', name: 'klyaksa', age: 1}
+
         return (
             <div className={`container self-slider`}>
                 {/* <img src={`/slides/slide_${this.state.position}.jpg`} alt="" /> */}
@@ -99,6 +102,11 @@ class MyComponent extends Component {
                 <MyInputComponent/>
                 <MyComponentSome3/>
                 
+                <div>
+                    <h4>Kind: {myAnimal.kind}</h4>
+                    <p>Name: {myAnimal.name}</p>
+                    <p>Age: {myAnimal.age}</p>
+                </div>
 
                 <div>
                     <button className="border-0 back-white " onClick={this.HeartClick}>
