@@ -1,6 +1,8 @@
 import { Component } from "react";
 import MyInputComponent from "./MyInput";
 import MyComponentSome3 from "./Some3";
+// import AnimalInfo from "./Animal-component";
+// import AnimalData from "./Animal-Data";
 
 // const [myInputName, setMyInputName] = useState('');
 
@@ -84,7 +86,7 @@ class MyComponent extends Component {
         console.log('this.state.animal: ', this.state.animal)
 
         // домашняя работа
-        const myAnimal = {kind: 'cat', name: 'klyaksa', age: 1}
+        // const myAnimal = {kind: 'cat', name: 'klyaksa', age: 1}
 
         return (
             <div className={`container self-slider`}>
@@ -101,12 +103,11 @@ class MyComponent extends Component {
                 </button>
                 <MyInputComponent/>
                 <MyComponentSome3/>
-                
-                <div>
+                {/* <div>
                     <h4>Kind: {myAnimal.kind}</h4>
                     <p>Name: {myAnimal.name}</p>
                     <p>Age: {myAnimal.age}</p>
-                </div>
+                </div> */}
 
                 <div>
                     <button className="border-0 back-white " onClick={this.HeartClick}>
