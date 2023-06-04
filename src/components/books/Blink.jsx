@@ -3,6 +3,10 @@ import MyInputComponent from "./MyInput";
 import MyComponentSome3 from "./Some3";
 import AnimalInfo99, {myConst} from "./AnimalInfo";
 // import AnimalData from "./Animal-Data";
+import MainPageHead123 from "../MainPageHead";
+import { useState } from 'react';
+import MyInputComponent from "./MyInput";
+
 
 // const [myInputName, setMyInputName] = useState('');
 
@@ -17,7 +21,8 @@ class MyComponent extends Component {
             a: 0,
             Heart: 'https://e7.pngegg.com/pngimages/725/818/png-clipart-heart-simple-red-people-heart-outline.png',
             fontSize: 20,
-            textareaValue: ''
+            textareaValue: '',
+            inputValue: ''
         }
         this.some1 = this.some1.bind(this);
         this.changeFontSizeHandler = this.changeFontSizeHandler.bind(this);
@@ -112,8 +117,12 @@ class MyComponent extends Component {
 
         // домашняя работа 2.1 Мапнуть массив из двух объектов, на каждой итерации вернуть собственный компонент
         const plants = [{kind: "tree", name: "elka", height: 3}, {kind: "flower", name: "romashka", height: 0.2}]
-
+        const mapPlats = plants.map((plant) => {
+            return plant.kind
+        })
         // домашняя работа 2.2 Написать <input>, просто менящий значение в state и выводящий его console.log, хэндлер не на чистой функции
+        
+
 
         return (
             <div className={`container self-slider`}>
@@ -145,20 +154,55 @@ class MyComponent extends Component {
                 </div> */}
 
 {/* homework task 1 */}
-                {
-                    plants.map((item, i) => {
-                        return (
-                            <div>
-                                {/* <p>{item.kind}</p> */}
-                                {/* кнопка по нажатию меняет цвет заголовка h1 на любой другой и при повторном длеает это обратно */}
-                                {/* <button onClick={}>
-                                    Change color
-                                </button> */}
-                            </div>
-                        )
-                    })
-                }
 
+                {
+                    // function changeColor() {
+                    //     const [color, setColor] = useState(red)
+
+                    //     const changeColorTitle = () => {
+                    //         setColor(color === red ? blue : red)
+                    //     }
+                    //     return(
+                    //         <div>
+                    //             <h1 style={color}>
+                    //                 jjjjjjjjjj
+                    //             </h1>
+                    //             <button onClick={changeColorTitle}>
+                    //                 bpvtybnm
+                    //             </button>
+                    //         </div>
+                    //     )
+                    // }
+                    // import React, { useState } from 'react';
+
+            function Change() {
+            const [color, setColor] = useState('red');
+            const changeColor = () => {
+                setColor(color === 'red' ? 'blue' : 'red');
+            };
+            return (
+                <div>
+                <h1 style={{ color }}>Заголовок</h1>
+                <button onClick={changeColor}>Изменить цвет</button>
+                </div>
+            );
+            }
+
+                    
+                    // plants.map((item, i) => {
+                    //     return (
+                    //         <div>
+
+                    //             {/* <p>{item.kind}</p> */}
+                    //             {/* кнопка по нажатию меняет цвет заголовка h1 на любой другой и при повторном длеает это обратно */}
+                    //         {/* <button onClick={changeColorTitle}>
+                    //             Change color
+                    //         </button>
+                    //      */}
+                    //         </div>
+                    //     )
+                    // })
+                }
 
 {/* homework task 2 */}
                 <textarea onChange={this.changeTextareaValueHandler} value={this.state.textareaValue}></textarea>
