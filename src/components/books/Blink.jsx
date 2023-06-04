@@ -1,11 +1,11 @@
 import { Component } from "react";
-import MyInputComponent from "./MyInput";
 import MyComponentSome3 from "./Some3";
 import AnimalInfo99, {myConst} from "./AnimalInfo";
 // import AnimalData from "./Animal-Data";
 import MainPageHead123 from "../MainPageHead";
 import { useState } from 'react';
-import MyInputComponent from "./MyInput";
+import MyInputComponent from "./MyInputComponent";
+import PlantInfo from './PlantInfo';
 
 
 // const [myInputName, setMyInputName] = useState('');
@@ -99,12 +99,6 @@ class MyComponent extends Component {
 
     // единственный обязательный метод - render
     render() {
-        const {} = this.props;
-        const b = 2;
-        
-        // console.log('Появление-2', this.state.position)
-        console.log('this.state.animal: ', this.state.animal)
-
         // домашняя работа 1
         const animals = [
             {kind: 'cat', name: 'klyaksa', age: 1},
@@ -117,12 +111,7 @@ class MyComponent extends Component {
 
         // домашняя работа 2.1 Мапнуть массив из двух объектов, на каждой итерации вернуть собственный компонент
         const plants = [{kind: "tree", name: "elka", height: 3}, {kind: "flower", name: "romashka", height: 0.2}]
-        const mapPlats = plants.map((plant) => {
-            return plant.kind
-        })
         // домашняя работа 2.2 Написать <input>, просто менящий значение в state и выводящий его console.log, хэндлер не на чистой функции
-        
-
 
         return (
             <div className={`container self-slider`}>
@@ -134,83 +123,21 @@ class MyComponent extends Component {
                     Some text for example
                 </p>
 
-                {/* <img src={`/slides/slide_${this.state.position}.jpg`} alt="" /> */}
-                {/* <Sx pos={this.state.position}/> */}
-                {/* <button onClick={this.some1}>
-                    test
-                </button>
-                <button onClick={this.some2.bind(this)}>
-                    test2
-                </button>
-                <button onClick={this.handleClick}>
-                    Купить
-                </button>
-                <MyInputComponent/>
-                <MyComponentSome3/>
-                <div>
-                    <h4>Kind: {myAnimal.kind}</h4>
-                    <p>Name: {myAnimal.name}</p>
-                    <p>Age: {myAnimal.age}</p>
-                </div> */}
-
-{/* homework task 1 */}
-
+                {/* homework task 1 */}
                 {
-                    // function changeColor() {
-                    //     const [color, setColor] = useState(red)
-
-                    //     const changeColorTitle = () => {
-                    //         setColor(color === red ? blue : red)
-                    //     }
-                    //     return(
-                    //         <div>
-                    //             <h1 style={color}>
-                    //                 jjjjjjjjjj
-                    //             </h1>
-                    //             <button onClick={changeColorTitle}>
-                    //                 bpvtybnm
-                    //             </button>
-                    //         </div>
-                    //     )
-                    // }
-                    // import React, { useState } from 'react';
-
-            function Change() {
-            const [color, setColor] = useState('red');
-            const changeColor = () => {
-                setColor(color === 'red' ? 'blue' : 'red');
-            };
-            return (
-                <div>
-                <h1 style={{ color }}>Заголовок</h1>
-                <button onClick={changeColor}>Изменить цвет</button>
-                </div>
-            );
-            }
-
-                    
-                    // plants.map((item, i) => {
-                    //     return (
-                    //         <div>
-
-                    //             {/* <p>{item.kind}</p> */}
-                    //             {/* кнопка по нажатию меняет цвет заголовка h1 на любой другой и при повторном длеает это обратно */}
-                    //         {/* <button onClick={changeColorTitle}>
-                    //             Change color
-                    //         </button>
-                    //      */}
-                    //         </div>
-                    //     )
-                    // })
+                    plants.map((item, i) => {
+                        return (
+                            <PlantInfo item={item} key={`plant-${i}`}/>
+                        )
+                    })
                 }
 
-{/* homework task 2 */}
+                {/* homework task 2 */}
                 <textarea onChange={this.changeTextareaValueHandler} value={this.state.textareaValue}></textarea>
                 {
                     this.state.textareaValue === 'Пылесос' &&
                     <div>РАБОТАЕТ!!!!!!</div>
                 }
-
 
                 {
                     animals.map((animalItem, i) => {
@@ -220,12 +147,32 @@ class MyComponent extends Component {
                     })
                 }
 
+                {/* Написать классовій компонент, которій ничего не принимает, но по нажатию на него, меняет размер текста */}
+                <div className="font-20">
+                    My homework 3
+                </div>
+
+                {/* Написать компонент, который будет добавлять дела */}
+                <div>
+                    <ul>
+                        <li>Почистить зубы</li>
+                        <li>Умыться</li>
+                        <li>Позавтракать</li>
+                        <li>Пойти в школу</li>
+                    </ul>
+                    <input type="text" />
+                    <button></button>
+                </div>
+
                 <div>
                     <button className="border-0 back-white " onClick={this.HeartClick}>
                         изменить
                         <img className="w-2p" src={this.state.Heart} alt="" />
                     </button>
                 </div>
+
+                <MyInputComponent/>
+
             </div>
         )
     }
