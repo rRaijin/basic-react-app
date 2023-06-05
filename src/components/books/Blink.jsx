@@ -6,6 +6,8 @@ import MainPageHead123 from "../MainPageHead";
 import { useState } from 'react';
 import MyInputComponent from "./MyInputComponent";
 import PlantInfo from './PlantInfo';
+import SizeChanges from "./FontSizeComponent";
+import TextAdd from "./InputText";
 
 
 // const [myInputName, setMyInputName] = useState('');
@@ -148,9 +150,8 @@ class MyComponent extends Component {
                 }
 
                 {/* Написать классовій компонент, которій ничего не принимает, но по нажатию на него, меняет размер текста */}
-                <div className="font-20">
-                    My homework 3
-                </div>
+                <SizeChanges/>
+
 
                 {/* Написать компонент, который будет добавлять дела */}
                 <div>
@@ -161,6 +162,7 @@ class MyComponent extends Component {
                         <li>Пойти в школу</li>
                     </ul>
                     <input type="text" />
+                    <TextAdd/>
                     <button></button>
                 </div>
 
