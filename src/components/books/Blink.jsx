@@ -173,7 +173,7 @@ class MyComponent extends Component {
                     {color: 'red', size: 23},
                     {color: 'blue', size: 30},
                 ] */}
-                <div>
+                {/* <div>
                     <ul>
                         <li>
                             <p>Color: {item.color}</p>
@@ -185,7 +185,7 @@ class MyComponent extends Component {
                     <label>Введите размер</label>
                     <input type="text" />
                     <button>Добавить</button>
-                </div>
+                </div> */}
 
                 <div>
                     <button className="border-0 back-white " onClick={this.HeartClick}>
