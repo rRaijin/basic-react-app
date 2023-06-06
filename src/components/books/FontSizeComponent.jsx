@@ -6,12 +6,13 @@ class SizeChanges extends Component {
     this.state = {
       fontSize: 20
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick = () => {
-    this.setState(prevState => ({
-      fontSize: prevState.fontSize === 20 ? 16 : 20
-    }));
+  handleClick() {
+      this.setState({
+          fontSize: this.state.fontSize  === 20 ? 16 : 20
+      });
   }
 
   render() {

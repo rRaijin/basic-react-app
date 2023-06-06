@@ -6,9 +6,10 @@ function TextAdd() {
 
     const handleClick = () => {
         setTextList([textList, inputText]);
-    setInputText('');
-  };
-
+        // setTextList([['a', 'b'], 'c'])
+        setInputText('');
+    };
+  console.log('t: ', textList)
   return (
     <div>
         <input

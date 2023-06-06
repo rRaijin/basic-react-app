@@ -8,6 +8,7 @@ import MyInputComponent from "./MyInputComponent";
 import PlantInfo from './PlantInfo';
 import SizeChanges from "./FontSizeComponent";
 import TextAdd from "./InputText";
+import MyTodoComponent from './MyTodoComponent';
 
 
 // const [myInputName, setMyInputName] = useState('');
@@ -161,9 +162,29 @@ class MyComponent extends Component {
                         <li>Позавтракать</li>
                         <li>Пойти в школу</li>
                     </ul>
-                    <input type="text" />
                     <TextAdd/>
                     <button></button>
+                </div>
+
+                <MyTodoComponent items={['Почистить зубы', 'Умыться', 'Позавтракать', 'Пойти в школу']}/>
+
+                {/* Отрисовівает массив обїектов, и может добавлять новій обїект по двум вводимім полям */}
+                {/* const items = [
+                    {color: 'red', size: 23},
+                    {color: 'blue', size: 30},
+                ] */}
+                <div>
+                    <ul>
+                        <li>
+                            <p>Color: {item.color}</p>
+                            <p>Size: {item.size}</p>
+                        </li>
+                    </ul>
+                    <label>Введите цвет</label>
+                    <input type="text" />
+                    <label>Введите размер</label>
+                    <input type="text" />
+                    <button>Добавить</button>
                 </div>
 
                 <div>
