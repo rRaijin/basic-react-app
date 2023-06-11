@@ -9,21 +9,25 @@ class AnyTextComponent extends Component {
         fontSize: 16,
         displayedText: []
     };
+    this.handleButtonClick = this.handleButtonClick.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleColorChange = this.handleColorChange.bind(this)
+    this.handleFontSizeChange = this.handleFontSizeChange.bind(this)
   }
 
-  handleInputChange = (event) => {
+  handleInputChange (event) {
     this.setState({ inputText: event.target.value });
   }
 
-  handleColorChange = (event) => {
+  handleColorChange (event)  {
     this.setState({ textColor: event.target.value });
   }
 
-  handleFontSizeChange = (event) => {
+  handleFontSizeChange (event) {
     this.setState({ fontSize: event.target.value });
   }
 
-  handleButtonClick = () => {
+  handleButtonClick () {
       const { inputText, textColor, fontSize, displayedText } = this.state;
       const textItem = (
         <p style={{ color: textColor, fontSize: fontSize + 'px' }}>
