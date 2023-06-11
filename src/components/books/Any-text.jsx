@@ -1,13 +1,15 @@
 import { Component } from 'react';
 
+import { MY_FONT_SIZE } from '../../constants';
+
 class AnyTextComponent extends Component {
     constructor(props) {
       super(props);
       this.state = {
         inputText: '',
         textColor: 'black',
-        fontSize: 16,
-        displayedText: []
+        fontSize: MY_FONT_SIZE,
+        displayedTexts: []
     };
     this.handleButtonClick = this.handleButtonClick.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -28,17 +30,23 @@ class AnyTextComponent extends Component {
   }
 
   handleButtonClick () {
-      const { inputText, textColor, fontSize, displayedText } = this.state;
-      const textItem = (
-        <p style={{ color: textColor, fontSize: fontSize + 'px' }}>
-          {inputText}
-        </p>
-      );
-      this.setState({ displayedText: [...displayedText, textItem], inputText: '' });
+      const { inputText, textColor, fontSize, displayedTexts } = this.state;
+      const textItem = {
+          color: textColor,
+          inputText,
+          fontSize: fontSize + 'px'
+      }
+      this.setState({
+          displayedTexts: [...displayedTexts, textItem],
+          inputText: '',
+          fontSize: MY_FONT_SIZE,
+          textColor: 'black'
+      });
   }
 
   render() {
-    const { inputText, textColor, fontSize, displayedText } = this.state;
+    const { inputText, textColor, fontSize, displayedTexts } = this.state;
+    console.log('displayedText: ', displayedTexts)
 
     return (
       <div>
@@ -53,13 +61,19 @@ class AnyTextComponent extends Component {
           <button onClick={this.handleButtonClick}>Add Text</button>
 
       <div>
-        {displayedText.map((text, i) => (
-          <div key={i}>{text}</div>
+        {displayedTexts.map((text, i) => (
+          <div key={`my_some_test_${i}`}>
+            <p style={{ color: text.color, fontSize: text.fontSize }}>
+                {text.inputText}
+            </p>
+          </div>
         ))}
       </div>
       </div>
     );
   }
 }
+
+
 
 export default AnyTextComponent;

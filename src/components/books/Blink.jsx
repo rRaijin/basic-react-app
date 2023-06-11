@@ -10,6 +10,7 @@ import SizeChanges from "./FontSizeComponent";
 import TextAdd from "./InputText";
 import MyTodoComponent from './MyTodoComponent';
 import AnyTextComponent from "./Any-text";
+import ParentCbExample from './ParentCbExample';
 
 
 // const [myInputName, setMyInputName] = useState('');
@@ -173,6 +174,8 @@ class MyComponent extends Component {
 
                 <MyTodoComponent items={['Почистить зубы', 'Умыться', 'Позавтракать', 'Пойти в школу']}/>
 
+                <ParentCbExample/>
+
                 {/* Отрисовівает массив обїектов, и может добавлять новій обїект по двум вводимім полям */}
                 {/* const items = [
                     {color: 'red', size: 23},
@@ -191,6 +194,7 @@ class MyComponent extends Component {
                     <input type="text" />
                     <button>Добавить</button>
                 </div> */}
+                <h4>HOMEWORK</h4>
                 <AnyTextComponent/>
 
                 <div>
