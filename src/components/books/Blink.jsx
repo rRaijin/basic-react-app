@@ -9,6 +9,7 @@ import PlantInfo from './PlantInfo';
 import SizeChanges from "./FontSizeComponent";
 import TextAdd from "./InputText";
 import MyTodoComponent from './MyTodoComponent';
+import AnyTextComponent from "./Any-text";
 
 
 // const [myInputName, setMyInputName] = useState('');
@@ -25,7 +26,8 @@ class MyComponent extends Component {
             Heart: 'https://e7.pngegg.com/pngimages/725/818/png-clipart-heart-simple-red-people-heart-outline.png',
             fontSize: 20,
             textareaValue: '',
-            inputValue: ''
+            inputValue: '',
+            cleaner: 'https://cdn.leroymerlin.ru/lmru/image/upload/v1650465772/b_white,c_pad,d_photoiscoming.png,f_auto,h_600,q_auto,w_600/lmcode/MAw4AUzA20KZ6S5yfbTdFg/84347455.jpg'
         }
         this.some1 = this.some1.bind(this);
         this.changeFontSizeHandler = this.changeFontSizeHandler.bind(this);
@@ -139,9 +141,12 @@ class MyComponent extends Component {
                 <textarea onChange={this.changeTextareaValueHandler} value={this.state.textareaValue}></textarea>
                 {
                     this.state.textareaValue === 'Пылесос' &&
-                    <div>РАБОТАЕТ!!!!!!</div>
+                    <img className="w-10p" src={this.state.cleaner} alt="" />
                 }
-
+                {
+                    this.state.textareaValue === 'Чашка' &&
+                    <img className="w-10p" src='https://printerio.com.ua/image/cache/data/cup/1000%D1%851000/print_2-1000x1000.jpg' alt="" />
+                }
                 {
                     animals.map((animalItem, i) => {
                         return (
@@ -151,7 +156,7 @@ class MyComponent extends Component {
                 }
 
                 {/* Написать классовій компонент, которій ничего не принимает, но по нажатию на него, меняет размер текста */}
-                <SizeChanges/>
+                <SizeChanges/>s
 
 
                 {/* Написать компонент, который будет добавлять дела */}
@@ -186,6 +191,7 @@ class MyComponent extends Component {
                     <input type="text" />
                     <button>Добавить</button>
                 </div> */}
+                <AnyTextComponent/>
 
                 <div>
                     <button className="border-0 back-white " onClick={this.HeartClick}>

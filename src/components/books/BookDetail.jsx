@@ -11,6 +11,7 @@ const BookDetail = (props) => {
                     {/* <button onClick={} className="">
                         
                     </button> */}
+                    
                 </div>
                 <div className="ml-11p">
                     <img className="w-1p" src="/books/star.png" alt="star"/>

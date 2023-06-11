@@ -165,3 +165,7 @@ code {
   display: flex;
   flex-direction: column;
 }
+
+.w-10p {
+  width: 10%;
+}
