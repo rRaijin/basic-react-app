@@ -11,6 +11,7 @@ import TextAdd from "./InputText";
 import MyTodoComponent from './MyTodoComponent';
 import AnyTextComponent from "./Any-text";
 import ParentCbExample from './ParentCbExample';
+import ParentInputComponent from "./ParentInput";
 
 
 // const [myInputName, setMyInputName] = useState('');
@@ -196,7 +197,7 @@ class MyComponent extends Component {
                 </div> */}
                 <h4>HOMEWORK</h4>
                 <AnyTextComponent/>
-
+                <ParentInputComponent/>
                 <div>
                     <button className="border-0 back-white " onClick={this.HeartClick}>
                         изменить
@@ -205,7 +206,6 @@ class MyComponent extends Component {
                 </div>
 
                 <MyInputComponent/>
-
             </div>
         )
     }
