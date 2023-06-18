@@ -169,3 +169,35 @@ code {
 .w-10p {
   width: 10%;
 }
+
+
+/* css */
+.books-page-main {
+    margin-top: 20px;
+}
+
+.books-page-filters {
+
+}
+
+.books-page-list {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.books-page-preview {
+    width: 25%;
+}
+
+.books-page-preview-nested {
+    border: 1px solid black;
+    background-color: #6e6a6a;
+    padding: 5px;
+    margin: 5px;
+}
+
+.books-page-preview-nested > img {
+    width: 100%;
+    height: 300px;
+}

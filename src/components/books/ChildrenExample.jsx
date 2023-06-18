@@ -28,8 +28,8 @@ class Example1 extends Component {
     render() {
         const { clickCntLikes, clickCntDislikes } = this.state;
         const { item, showBtn } = this.props;
-        console.log('clickCntLikes: ', clickCntLikes);
-        console.log('clickCntDislikes: ', clickCntDislikes);
+        // console.log('clickCntLikes: ', clickCntLikes);
+        // console.log('clickCntDislikes: ', clickCntDislikes);
 
         return (
             <div>

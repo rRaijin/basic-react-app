@@ -196,57 +196,70 @@ const BookPage = () => {
         )
     });
 
+    // console.log('state name: ', myInputName);
+    // console.log('state price min: ', myInputPriceMin);
+    // console.log('state price max: ', myInputPriceMax);
+    // console.log('props books: ', selectedGenre);
+
+    // ООП
+    // 1. парадигма
+    // 2. модульность, декомпозиция, много кода
+    // 3. рефакторинг, поддержка, использование в нескольких местах.
+    // 4. абстракция, наследование.
+
     return (
-        <div className='books-page-main'>
-            <div className='books-page-filters'>
-                <label>Я шукаю:</label>
-                <input className='w-20p0'
-                    type='input'
-                    value={myInputName}
-                    onChange={myChangeHandlerName}/>
+        <div className=''>
+            <Blink/>
 
-                <label>Ціна:</label>
-                <input
-                    type='number'
-                    // min={0}
-                    // max={5000}
-                    value={myInputPriceMin}
-                    onChange={myChangeHandlerPriceMin}/>
-                <input
-                    type='number'
-                    value={myInputPriceMax}
-                    onChange={myChangeHandlerPriceMax}/>
+            <MyInputComponent/>
 
 
-                <select name="select" onChange={mySelect}>
-                    {
-                        genres.map(((g, i) => {
-                            return (
-                                <option value={g.id} key={`genre-${i}`}>
-                                    {g.title}
-                                </option>
-                            )
-                        }))
-                    }
-                    <option value={0} key={`genre-${genres.length + 1}`}>
-                        All
-                    </option>
-                </select>
-            </div>
-            <div className='books-page-list'>
+            <label>Я шукаю:</label>
+            <input className='w-20p0'
+                type='input'
+                value={myInputName}
+                onChange={myChangeHandlerName}/>
+
+            <label>Ціна:</label>
+            <input
+                type='number'
+                // min={0}
+                // max={5000}
+                value={myInputPriceMin}
+                onChange={myChangeHandlerPriceMin}/>
+            <input
+                type='number'
+                value={myInputPriceMax}
+                onChange={myChangeHandlerPriceMax}/>
+
+
+            <select name="select" onChange={mySelect}>
                 {
-                    filteredBooks.map((book, index) => { 
+                    genres.map(((g, i) => {
                         return (
-                            <BookDetail
-                                item={book}
-                                key={`book_${index}`}
-                                genres={genres}
-                                authors={authors}
-                                stars={stars}/>
+                            <option value={g.id} key={`genre-${i}`}>
+                                {g.title}
+                            </option>
                         )
-                    })
+                    }))
                 }
-            </div>
+                <option value={0} key={`genre-${genres.length + 1}`}>
+                    All
+                </option>
+            </select>
+
+            {
+                filteredBooks.map((book, index) => { 
+                    return (
+                        <BookDetail
+                            item={book}
+                            key={`book_${index}`}
+                            genres={genres}
+                            authors={authors}
+                            stars={stars}/>
+                    )
+                })
+            }
         </div>
     );
 }

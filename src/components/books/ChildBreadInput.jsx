@@ -4,7 +4,7 @@ class ChildBreadInput extends Component {
         super(props);
         this.state = {
             inputValue: '',
-            breadInput: false,
+            // breadInput: false,
         };
     }
   
@@ -14,6 +14,7 @@ class ChildBreadInput extends Component {
         this.props.onTextChange(inputValue);
     }
   
+    // variant 1
     componentDidUpdate(prevProps) {
         if (prevProps.breadInput !== this.props.breadInput) {
             this.setState({ breadInput: this.props.breadInput });
@@ -21,16 +22,16 @@ class ChildBreadInput extends Component {
     }
   
     render() {
-      return (
-        <div>
-          <input
-            type="text"
-            value={this.state.inputValue}
-            onChange={this.handleInputChange}
-            disabled={this.state.breadInput}
-            />
-        </div>
-      );
+        return (
+            <div>
+                <input
+                    type="text"
+                    value={this.state.inputValue}
+                    onChange={this.handleInputChange}
+                    disabled={this.props.breadInput}/>
+            </div>
+        );
     }
-  }
+}
+
 export default ChildBreadInput;

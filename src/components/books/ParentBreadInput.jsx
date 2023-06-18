@@ -20,8 +20,7 @@ class ParentBread extends Component {
             <div>
             <ChildBreadInput
                 onTextChange={this.handleTextChange}
-                breadInput={this.state.breadChildInput}
-            />
+                breadInput={this.state.breadChildInput}/>
             </div>
         );
     }

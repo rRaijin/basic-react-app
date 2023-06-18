@@ -5,23 +5,15 @@ const BookDetail = (props) => {
     const bookAuthor = authors.find(k => k.id === item.author);
 
     return (
-            <div className=''>
-                <div>
-                    <img className='w-15p mt-30px ml-6p' src={`/books/${item.picture}`} alt='mark-tven'/>
-                    {/* <button onClick={} className="">
-                        
-                    </button> */}
-                    
-                </div>
+        <div className='books-page-preview'>
+            <div className='books-page-preview-nested'>
+                <img className='' src={`/books/${item.picture}`} alt={item.bookName}/>
                 <div className="ml-11p">
                     <img className="w-1p" src="/books/star.png" alt="star"/>
                     <img className="w-1p" src="/books/star.png" alt="star"/>                   
                     <img className="w-1p" src="/books/star.png" alt="star"/>                  
                     <img className="w-1p" src="/books/star.png" alt="star"/>                   
                     <img className="w-1p" src="/books/star.png" alt="star"/>      
-                        
-                    {/* {bookStars.stars} */}
-                    
                 </div>
                 <div className='bold font-family-cursive text-light-orange'>
                     Название: {item.bookName}
@@ -57,10 +49,8 @@ const BookDetail = (props) => {
                 <div className='bold font-size-20px font-family-cursive text-light-pink'>
                     {item.price} грн
                 </div>
-                {/* <button onClick={}>
-
-                </button> */}
             </div>
+        </div>
     )
 }
 
