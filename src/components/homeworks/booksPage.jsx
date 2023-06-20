@@ -4,6 +4,7 @@ import BookDetail from '../components/books/BookDetail';
 import menu1 from '../mock/menu.json';
 import Blink from '../components/books/Blink';
 import MyInputComponent from '../components/books/MyInput';
+import MinMax20 from '../books/MinMax20';
 
 const BookPage = () => {
     const [myInputName, setMyInputName] = useState('');
@@ -210,8 +211,8 @@ const BookPage = () => {
     return (
         <div className=''>
             <Blink/>
-
-            <MyInputComponent/>
+            <MinMax20/>
+            
 
 
             <label>Я шукаю:</label>
@@ -230,8 +231,7 @@ const BookPage = () => {
             <input
                 type='number'
                 value={myInputPriceMax}
-                onChange={myChangeHandlerPriceMax}/>
-
+                onChange={myChangeHandlerPriceMax}/> 
 
             <select name="select" onChange={mySelect}>
                 {

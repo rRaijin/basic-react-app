@@ -4,6 +4,7 @@ import BookDetail from '../components/books/BookDetail';
 import menu1 from '../mock/menu.json';
 import Blink from '../components/books/Blink';
 import MyInputComponent from '../components/books/MyInput';
+import MinMax20 from '../components/books/MinMax20';
 
 const BookPage = () => {
     const [myInputName, setMyInputName] = useState('');
@@ -197,6 +198,7 @@ const BookPage = () => {
     });
 
     return (
+        
         <div className='books-page-main'>
             <div className='books-page-filters'>
                 <label>Я шукаю:</label>
