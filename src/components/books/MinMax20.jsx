@@ -1,20 +1,21 @@
 import { useState } from "react";
 
 const MinMax20 = () => {
-    const [value, setValue] = useState(0)
+    const [value, setValue] = useState(0);
 
     const handleChange = (e) => {
-        let newValue = parseInt(e.target.value)
+        let newValue = parseInt(e.target.vale)
     
 
         if (newValue > 20) {
             newValue = 20
         }
-        setValue(newValue)
+        setValue(newValue);
     }
-    return(
+
+    return (
         <input 
-            type="text" 
+            type="number" 
             min={0}
             max={20}
             value={value}
@@ -22,4 +23,5 @@ const MinMax20 = () => {
         />
     )
 }
+
 export default MinMax20;
