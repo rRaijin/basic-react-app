@@ -208,6 +208,36 @@ const BookPage = () => {
     // 3. рефакторинг, поддержка, использование в нескольких местах.
     // 4. абстракция, наследование.
 
+    {/* <div className='mt-240'>
+                <FontAwesomeIcon
+                    icon={faCoffee}
+                    color='#29d879'
+                    spin={true}
+                    size={'5x'}/>
+
+                <FontAwesomeIcon icon={faHouse}/>
+                <FontAwesomeIcon
+                 icon={faSoccerBall}
+                 size={'3x'}/>
+                 <FontAwesomeIcon icon={faTree}
+                 size={'3x'}/>
+                 <FontAwesomeIcon icon={faHeartCircleMinus}
+                 size={'3x'}/>
+                 <FontAwesomeIcon icon={faHeartPulse}
+                 size={'3x'}/>
+                 <FontAwesomeIcon icon={faMoneyBill}
+                 size={'3x'}/>
+            </div>
+
+            <div className='mt-240'>
+                <Button variant="text">Text</Button>
+                <Button variant="contained">Contained</Button>
+                <Button variant="outlined">Outlined</Button>
+            </div>
+            <div>
+                
+            </div> */}
+
     return (
         <div className=''>
             <Blink/>

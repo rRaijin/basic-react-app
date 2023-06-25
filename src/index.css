@@ -254,3 +254,19 @@ code {
   color: white;
   border-radius: 7px;
 }
+
+.main-navigation {
+    width: 80%;
+    background-color: burlywood;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.main-navigation li {
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+}
