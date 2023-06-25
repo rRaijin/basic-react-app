@@ -170,6 +170,41 @@ code {
   width: 10%;
 }
 
+.h-10p {
+  height: 10%;
+}
+
+.font-size67p {
+  font-size: 67%;
+}
+
+.w-30p {
+  width: 30%;
+}
+
+.w-8p {
+  width: 8%;
+}
+
+.w-100p {
+  width: 100%;
+}
+
+.fl-r {
+  float: right;
+}
+
+.w-60p {
+  width: 60%;
+}
+
+.w-5p {
+  width: 5%;
+}
+
+.w-40p {
+  width: 40%;
+}
 
 /* css */
 .books-page-main {
@@ -187,17 +222,35 @@ code {
 }
 
 .books-page-preview {
-    width: 25%;
+    width: 16%;
 }
 
 .books-page-preview-nested {
-    border: 1px solid black;
-    background-color: #6e6a6a;
-    padding: 5px;
+    /* border: 1px solid black; */
+    /* background-color: #bde66c40; */
+    padding: 1px;
     margin: 5px;
+    border-bottom: 1px solid #dacccc;
+    border-left: 1px solid #dacccc;
+    padding: 2px;
+    border-right: 1px solid #dacccc;
 }
 
 .books-page-preview-nested > img {
     width: 100%;
-    height: 300px;
+    height: 250px;
+}
+
+
+.buy-button {
+  display: none; 
+}
+
+.product:hover .buy-button {
+  display: inline-block; 
+  width: 30%;
+  background-color: orange;
+  padding: 3%;
+  color: white;
+  border-radius: 7px;
 }

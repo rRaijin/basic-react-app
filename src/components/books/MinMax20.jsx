@@ -4,7 +4,7 @@ const MinMax20 = () => {
     const [value, setValue] = useState(0)
 
     const handleChange = (e) => {
-        let newValue = parseInt(e.target.vale)
+        let newValue = parseInt(e.target.value)
     
 
         if (newValue > 20) {

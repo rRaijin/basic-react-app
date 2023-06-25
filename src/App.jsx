@@ -9,6 +9,7 @@ import menu1 from './mock/menu.json';
 import items from './mock/items.json';
 import MainPageHead from './components/MainPageHead';
 import BookPage from './pages/booksPage';
+import SiteHeader from './components/books/siteHeader';
 
 
 // console.log('menu: ', faHouse);
@@ -38,7 +39,7 @@ const App = () => {
     return (
         <div className='container flex flex-col'>
             <MainPageHead subTitle='qwe' someNumber={4} myBul={true}/>
-
+            {/* <SiteHeader/> */}
             <BookPage/>
 
             {/* <div className='mt-240'>
