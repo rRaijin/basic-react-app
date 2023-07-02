@@ -1,9 +1,10 @@
 import { useState } from 'react';
 
 import BookDetail from '../components/books/BookDetail';
-
+import MainPageHead123 from '../components/MainPageImageBlock';
 
 const BookPage = () => {
+    
     const [myInputName, setMyInputName] = useState('');
     const myChangeHandlerName = (e) => {
         // console.log('dt: ', e);
@@ -184,6 +185,7 @@ const BookPage = () => {
             picture: 'a_little_prince.jpg'
         }
     ];
+    
 
     const filteredBooks = books.filter(x => {
         return (
@@ -197,6 +199,7 @@ const BookPage = () => {
     return (
         
         <div className='books-page-main'>
+            <MainPageHead123/>
             <div className='books-page-filters'>
                 <label>Я шукаю:</label>
                 <input className='w-20p0'

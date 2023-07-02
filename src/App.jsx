@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 
-import MainPageHead from './components/MainPageHead';
+import MainPageHead from './components/MainPageImageBlock';
 import BookPage from './pages/booksPage';
 import Header from './components/Header';
 import Layout from './components/Layout';
