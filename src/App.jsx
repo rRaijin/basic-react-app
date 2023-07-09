@@ -1,11 +1,10 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 
-import MainPageHead from './components/MainPageImageBlock';
-import BookPage from './pages/booksPage';
+import BookPage from './pages/books';
 import Header from './components/Header';
-import Layout from './components/Layout';
 import HomePage from './pages/home';
+import Layout from './components/Layout';
 
 
 const App = () => {
@@ -25,7 +24,3 @@ const App = () => {
 }
 
 export default App;
-
-
-{/* <MainPageHead subTitle='qwe' someNumber={4} myBul={true}/> // переименовать MainPageImageBlock и вывести его в BooksPage
-            <BookPage/> */}

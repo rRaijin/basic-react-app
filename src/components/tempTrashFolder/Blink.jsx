@@ -1,18 +1,18 @@
 import { Component } from "react";
-import MyComponentSome3 from "./Some3";
-import AnimalInfo99, {myConst} from "./AnimalInfo";
+import MyComponentSome3 from "../homeworks/Some3";
+import AnimalInfo99, {myConst} from "../books/AnimalInfo";
 // import AnimalData from "./Animal-Data";
 import MainPageHead123 from "../MainPageHead";
 import { useState } from 'react';
-import MyInputComponent from "./MyInputComponent";
-import PlantInfo from './PlantInfo';
-import SizeChanges from "./FontSizeComponent";
-import TextAdd from "./InputText";
-import MyTodoComponent from './MyTodoComponent';
-import AnyTextComponent from "./Any-text";
-import ParentCbExample from './ParentCbExample';
-import ParentInputComponent from "./ParentInput";
-import ParentBread from "./ParentBreadInput";
+import MyInputComponent from "../books/MyInputComponent";
+import PlantInfo from '../homeworks/PlantInfo';
+import SizeChanges from "../books/FontSizeComponent";
+import TextAdd from "../books/InputText";
+import MyTodoComponent from '../books/MyTodoComponent';
+import AnyTextComponent from "../books/Any-text";
+import ParentCbExample from '../books/ParentCbExample';
+import ParentInputComponent from "../books/ParentInput";
+import ParentBread from "../books/ParentBreadInput";
 
 
 // const [myInputName, setMyInputName] = useState('');
