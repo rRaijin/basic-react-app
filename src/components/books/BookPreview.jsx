@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+
+
 const BookDetail = (props) => {
     const { item, genres, authors } = props;
 
@@ -38,9 +41,11 @@ const BookDetail = (props) => {
                     <p className=''>
                         {item.price} грн
                     </p>
-                    <button>
-                        Купить
-                    </button>
+                    <Link to={`/book/${item.id}`}>
+                        <button>
+                            Купить
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

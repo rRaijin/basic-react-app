@@ -3,7 +3,7 @@ import { useState } from 'react';
 import authors from '../mock/authors.json';
 import books from '../mock/books.json';
 import genres from '../mock/genres.json';
-import BookDetail from '../components/books/BookPreview';
+import BookPreview from '../components/books/BookPreview';
 import BooksPagePreText from '../components/books/BooksPagePreText';
 
 
@@ -76,7 +76,7 @@ const BookPage = () => {
                 {
                     filteredBooks.map((book, index) => { 
                         return (
-                            <BookDetail
+                            <BookPreview
                                 item={book}
                                 key={`book_${index}`}
                                 genres={genres}

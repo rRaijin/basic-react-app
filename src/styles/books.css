@@ -49,19 +49,18 @@
 
 .book-preview:hover {
     z-index: 10;
+    /* scale: 1.15; */
+    transform: scale(1.15);
     -moz-transform: scale(1.15);
     -webkit-transform: scale(1.15);
     -o-transform: scale(1.15);
     -ms-transform: scale(1.15);
-    -webkit-transform: scale(1.15);
-    transform: scale(1.15);
 
-    -moz-transition:transform 1.15s ease-in-out;
-    -webkit-transition: transform 1.15s ease-in-out;
-    -o-transition: transform 1.15s ease-in-out;
-    -ms-transition:transform 1.15s ease-in-out;
-    -webkit-transition: transform 1.15s ease-in-out;
     transition: transform 1.15s ease-in-out;
+    -moz-transition: transform 1.15s ease-in-out;
+    -o-transition: transform 1.15s ease-in-out;
+    -ms-transition: transform 1.15s ease-in-out;
+    -webkit-transition: transform 1.15s ease-in-out;
 }
 
 .book-preview-title {
