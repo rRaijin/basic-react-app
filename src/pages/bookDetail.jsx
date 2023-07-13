@@ -21,6 +21,7 @@ import books from '../mock/books.json';
 import { Component } from 'react';
 import { withRouter } from '../hocs/withRouter';
 import MyWrappedComponent from '../components/books/wrappedComponent';
+import ComponentWithConsole from '../components/books/componentWithConsole';
 
 
 
@@ -36,6 +37,7 @@ class BookDetail extends Component {
         return (
             <div className="">
                 <MyWrappedComponent y={1}/>
+                <ComponentWithConsole z={2}/>
             </div>
         )
     }

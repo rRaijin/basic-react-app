@@ -12,6 +12,11 @@ const menuItems = [
         name: 'books',
         src: '/books',
         icon: ''
+    },
+    {
+        name: 'About Us',
+        src: '/aboutUs',
+        icon: ''
     }
 ];
 
