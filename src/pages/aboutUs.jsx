@@ -1,5 +1,5 @@
 export default () => {
-    return(
+    return (
         <div>
             About Us
         </div>

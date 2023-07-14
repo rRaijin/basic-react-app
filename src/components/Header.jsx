@@ -15,7 +15,7 @@ const menuItems = [
     },
     {
         name: 'About Us',
-        src: '/aboutUs',
+        src: '/about',
         icon: ''
     }
 ];
