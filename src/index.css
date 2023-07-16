@@ -67,10 +67,41 @@ code {
   color: #41B3A3;
 }
 
-.text-light-pink {
+.text-light-pink {  
   color: #ca889d;
 }
 
+.text-orange {
+  color: #ee6d49;
+}
+
+.with-60p {
+  width: 60%;
+}
+
+.w-50p {
+  width: 50%;
+}
+
+.pl-5p {
+  padding-left: 5%;
+}
+
+.brd-t-black-1px {
+  border-top: 2px solid rgb(213, 213, 213);
+}
+
+.brd-b-black-2px {
+  border-bottom: 2px solid rgb(213, 213, 213);
+}
+
+.pt-4p {
+  padding-top: 4%;
+}
+
+.pl-2p {
+  padding-left: 2%;
+}
 
 /* TODO REMOVE */
 .self-slider {

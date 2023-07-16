@@ -1,5 +1,5 @@
 import { withConsole } from "../../hocs/withConsoleLog";
-import { withABShow } from "../../hocs/withAbMockTest";
+import { withReklamaForUsers } from "../../hocs/withMyReklamaForUsers";
 
 const ComponentWithConsole = (props) => {
     console.log('props in comp: ', props)
@@ -12,14 +12,27 @@ const ComponentWithConsole = (props) => {
 
 export default withConsole(ComponentWithConsole);
 
-export const ABComponent = withABShow((props) => {
-    console.log('props 2: ', props);
+// export const ABComponent = withABShow((props) => {
+//     console.log('props 2: ', props);
 
+//     return (
+//         <div className="">
+//             <div>MAIN CONTENT</div>
+//             <div>
+//                 {props.reklama}
+//             </div>
+//         </div>
+//     )
+// });
+
+export const WithmyReklamaComponent = withReklamaForUsers((props) => {
     return (
-        <div className="">
-            <div>MAIN CONTENT</div>
+        <div>
             <div>
-                {props.reklama}
+                My Reklama
+            </div>
+            <div>
+                {props.myReklama}
             </div>
         </div>
     )
