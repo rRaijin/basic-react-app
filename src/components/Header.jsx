@@ -17,6 +17,11 @@ const menuItems = [
         name: 'About Us',
         src: '/about',
         icon: ''
+    },
+    {
+        name: 'AuthorsList',
+        src: '/authorsData',
+        icon: ''
     }
 ];
 

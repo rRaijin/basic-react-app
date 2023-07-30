@@ -7,6 +7,7 @@ import Header from './components/Header';
 import HomePage from './pages/home';
 import Layout from './components/Layout';
 import AboutUs from './pages/aboutUs';
+// import AuthorsList from './pages/authorsData';
 
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
                     <Route index element={<HomePage/>}/>
                     <Route path='books' element={<BookPage/>}/>
                     <Route path='about' element={<AboutUs/>}/>
+                    {/* <Route path='authorsData' element={<AuthorsList/>}/> */}
                     <Route path="book/:id" element={<BookDetail/>}/>
                 </Route>
             </Routes>
