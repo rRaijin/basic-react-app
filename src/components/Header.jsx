@@ -14,13 +14,13 @@ const menuItems = [
         icon: ''
     },
     {
-        name: 'About Us',
-        src: '/about',
+        name: 'authors',
+        src: '/authors',
         icon: ''
     },
     {
-        name: 'AuthorsList',
-        src: '/authorsData',
+        name: 'About Us',
+        src: '/about',
         icon: ''
     }
 ];

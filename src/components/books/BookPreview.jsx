@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 
 const BookDetail = (props) => {
-    const { item, genres, authors } = props;
+    const { item, genres, authors, showAuthorName, stars } = props;
 
     const filteredGenres = genres.filter(g => item.genre.indexOf(g.id) !== -1);
     const bookAuthor = authors.find(k => k.id === item.author);
@@ -10,6 +10,7 @@ const BookDetail = (props) => {
     const getShortText = (text, slice) => {
         return text.length > slice ? text.substring(0, slice) + '...' : text;
     }
+    console.log('showAuthorName: ', showAuthorName);
 
     return (
         <div className='book-preview-wrapper'>
@@ -30,12 +31,15 @@ const BookDetail = (props) => {
                             })
                         }
                     </div>
-                    <div className="book-preview-author"> 
-                        {bookAuthor.firstName} {bookAuthor.lastName}
-                    </div>     
+                    {
+                        showAuthorName &&
+                        <div className="book-preview-author"> 
+                            {bookAuthor.firstName} {bookAuthor.lastName}
+                        </div>     
+                    }
                 </div>
                 <div className='book-preview-stars'>
-                    {[1,2,3,4,5].map((k, i) => <img className='' src="/books/star.png" alt={`star-${i}`}/>)}
+                    {stars.map((k, i) => <img className='' src="/books/star.png" alt={`star-${i}`}/>)}
                 </div>
                 <div className="book-preview-buy">
                     <p className=''>

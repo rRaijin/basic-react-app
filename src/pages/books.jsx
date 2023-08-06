@@ -78,6 +78,8 @@ const BookPage = () => {
                         return (
                             <BookPreview
                                 item={book}
+                                showAuthorName={true}
+                                stars={[1, 2, 3, 4, 5]}
                                 key={`book_${index}`}
                                 genres={genres}
                                 authors={authors}/>

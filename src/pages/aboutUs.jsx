@@ -1,4 +1,4 @@
-import ComponentWithConsole, { WithmyReklamaComponent} from '../components/books/ComponentWithConsole';
+import ComponentWithConsole, { WithmyReklamaComponent } from '../components/books/ComponentWithConsole';
 import MyWrappedComponent from '../components/books/WrappedComponent';
 
 export default () => {
