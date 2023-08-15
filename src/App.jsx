@@ -12,6 +12,9 @@ import BookDetail from './pages/bookDetail';
 import AuthorsPage from './pages/authors';
 import AuthorDetail from './pages/authorDetail';
 
+import GenresPage from './pages/genres';
+import GenreDetail from './pages/genresDetail';
+// import Books from './components/genres/GenrePreview';
 
 const App = () => {
     return (
@@ -25,6 +28,8 @@ const App = () => {
                     <Route path="book/:id" element={<BookDetail/>}/>
                     <Route path='authors' element={<AuthorsPage/>}/>
                     <Route path="author/:id" element={<AuthorDetail/>}/>
+                    <Route path='genres' element={<GenresPage/>}/>
+                    <Route path='genres/:id' element={<GenreDetail/>}/>
                 </Route>
             </Routes>
 

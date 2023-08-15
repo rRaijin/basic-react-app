@@ -51,6 +51,10 @@ code {
   flex-direction: row;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .text-white {
   color: white;
 }
@@ -71,6 +75,10 @@ code {
   color: #ca889d;
 }
 
+.text-black {
+  color: black;
+}
+
 .text-orange {
   color: #ee6d49;
 }
@@ -79,8 +87,20 @@ code {
   width: 60%;
 }
 
+.w-80p {
+  width: 80%;
+}
+
+.w-23p {
+  width: 23%;
+}
+
 .w-50p {
   width: 50%;
+}
+
+.w-41p {
+  width: 41%;
 }
 
 .pl-5p {

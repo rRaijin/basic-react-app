@@ -5,8 +5,8 @@ const AuthorPreview = (props) => {
     const { item, books } = props;
 
     return (
-        <div className='author-preview-wrapper'>
-            <p className=''>
+        <div className='text-black'>
+            <p className='pl-2p'>
                 {item.firstName} {item.lastName}
             </p>
             <Link to={`/author/${item.id}`}>

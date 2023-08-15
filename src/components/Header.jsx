@@ -19,6 +19,11 @@ const menuItems = [
         icon: ''
     },
     {
+        name: 'genres',
+        src: '/genres',
+        icon: ''
+    },
+    {
         name: 'About Us',
         src: '/about',
         icon: ''
