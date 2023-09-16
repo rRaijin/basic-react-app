@@ -12,7 +12,7 @@ const GenreDetail = (props) => {
 
     return (
         <div className=''>
-            <ul className='flex-wrap flex'>
+            <ul className=''>
                 {booksByGenre.map((book, i) =>
                     <BookPreview
                         item={book}

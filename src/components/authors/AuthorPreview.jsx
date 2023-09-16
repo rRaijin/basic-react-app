@@ -5,13 +5,13 @@ const AuthorPreview = (props) => {
     const { item, books } = props;
 
     return (
-        <div className='text-black'>
+        <div className='text-black w-29p'>
             <p className='pl-2p'>
-                {item.firstName} {item.lastName}
+                {item.firstName} {item.lastName} <img className='' src={`/books/${item.authorsPhoto}`} alt={item.bookName}/>
             </p>
             <Link to={`/author/${item.id}`}>
                 <button>
-                    VIEW
+                    Просмотреть книги
                 </button>
             </Link>
         </div>

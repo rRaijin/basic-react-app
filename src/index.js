@@ -7,6 +7,7 @@ import './styles/home.css';
 import './styles/books.css';
 import './styles/authors.css';
 import './styles/slider.css';
+import './styles/genres.css'
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

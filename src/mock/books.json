@@ -14,13 +14,13 @@
     },
     {
         "id": 2,
-        "bookName": "Детектив-1",
+        "bookName": "1984",
         "description": "Какое-то описание книги",
-        "year": 2000,
+        "year": 1949,
         "genre": [1, 4],
         "price": 2000,
         "author": 2,
-        "picture": "starvi.webp",
+        "picture": "1984.jpg",
         "pages": 72
     },
     {
