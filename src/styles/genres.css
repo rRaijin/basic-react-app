@@ -5,3 +5,11 @@
 .w-full {
     width: 100%;
 }
+
+.ml-10px {
+    margin-left: 10px;
+}
+
+.m-5p {
+    margin: 5%;
+}

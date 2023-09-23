@@ -4,7 +4,7 @@ const GenresPagee = () => {
     return (
         <div>
             <h1>Жанры</h1>
-        <ul className='flex-wrap w-full'>
+        <ul className='flex-wrap w-full '>
             {genres.map(genre => (
                 <li key={genre.id}>
                   
