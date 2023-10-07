@@ -1,22 +1,13 @@
 
 import React, { useState, useEffect } from "react";
 
-
-// fetch(`https://jsonplaceholder.typicode.com/users/${1}`, {
-//     method: "GET",
-// })
-       
-// Task 1: Страницу поста оформить, вывести текст и список комментариев, и кнопку для каждого комментария - получить данные его автора
-// Если данные пришли добавить автора в стейт в список авторов и вывести под комментарием его данные
-
-// Task 2: После того, как запросили автора комментария и вывели его данные - под ними вывели и его заметки
-
 export default () => {
     const [posts, setPosts] = useState([]);
     const [selectedId, setSelectedId] = useState(0);
     const [hasPrevPost, setHasPrevPost] = useState(false);
     const [firstTransition, setFirstTransition] = useState(false);
     const [comments, setComments] = useState([]);
+    const [authors, setAuthors] = useState({});
 
     const getPost = (postId) => {
         // Если использовать filter() Фильтруем по критерию(id), если в массиве не будет объекта - вернется пустой массив, 
@@ -81,14 +72,34 @@ export default () => {
         }
     };
 
+    const getAuthorData = (authorId) => {
+        if (!authors[authorId]) {
+            fetch(`https://jsonplaceholder.typicode.com/users/${authorId}`, {
+                method: "GET",
+            })
+            .then((response) => {
+                if (response.status === 200) {
+                    return response.json();
+                }
+            })
+            .then((data) => {
+                if (data && data !== undefined && data !== "undefined") {
+                    setAuthors((prevAuthors) => ({
+                        ...prevAuthors,
+                        [authorId]: data,
+                    }));
+                } else {
+                    console.log("NO AUTHOR DATA!");
+                }
+            });
+        }
+    };
+
     useEffect(() => {
-        // При начальном монтировании компонента запросить первый пост и его комментарии
         getPost(1);
     }, []);
 
     useEffect(() => {
-        // console.log('effect for get comments for post id: ', selectedId);
-        // При изменении выбранного поста, запросить его комментарии
         if (selectedId !== 0) {
             getCommentsForPost(selectedId);
         } else {
@@ -96,56 +107,56 @@ export default () => {
         }
     }, [selectedId]);
 
-    // console.log('posts: ', posts);
-    // console.log('comm: ', comments);
-
-    const currentPost = posts.find(p => p.id === selectedId); // получаем что-то или отсутствие чего-то (undefined)
+    const currentPost = posts.find(p => p.id === selectedId);
     const commentsList = comments.filter(comm => comm.postId === selectedId);
-    // console.log('filtered: ', commentsList);
-
-    // Массив проверяется на длину, а объект на существование
-
-
 
     return (
-      <div className="">
-          <div className="">
-              {hasPrevPost && (
-                <button className="" onClick={() => getPost(selectedId - 1)}>
-                  PREV
+        <div className="">
+            <div className="">
+                {hasPrevPost && (
+                    <button className="button-next-prev" onClick={() => getPost(selectedId - 1)}>
+                        PREV
+                    </button>
+                )}
+                <button className="button-next-prev" onClick={() => getPost(selectedId + 1)}>
+                    NEXT
                 </button>
-              )}
-              <button className="" onClick={() => getPost(selectedId + 1)}>
-                NEXT
-              </button>
-          </div>
+            </div>
             {
                 currentPost ?
-                <div className="">
+                <div className="mb-20px">
                     <h1>{currentPost.title}</h1>
                     <p>{currentPost.id}</p>
                     <p>{currentPost.body}</p>
                 </div>
-            :
+                :
                 <div>No data</div>
             }
 
             {commentsList.length > 0 ? (
-              <div key={`comments-list-for-post-${selectedId}`}>
-                <h2>Comments:</h2>
-                {commentsList.map((comment) => (
-                  <div key={comment.id}>
-                    <p>{comment.name}</p>
-                    <p>{comment.body}</p>
-                  </div>
-                ))}
-              </div>
+                <div className="mt-20px" key={`comments-list-for-post-${selectedId}`}>
+                    <h2>Comments:</h2>
+                    {commentsList.map((comment) => (
+                        <div className="comment" key={comment.id}>
+                            <p className="fz16pxmb10px">{comment.name}</p>
+                            <p className="fz16pxmb10px">{comment.body}</p>
+                            <button className="author-button" onClick={() => getAuthorData(comment.userId)}>Get Author Data</button>
+                            {authors[comment.userId] && (
+                                <div className="author-info">
+                                    <p className="fz16pxmb10px">Author: {authors[comment.userId].name}</p>
+                                    <p className="fz16pxmb10px">Email: {authors[comment.userId].email}</p>
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
             ) : (
-              <div>No comments</div>
+                <div>No comments</div>
             )}
-      </div>
+        </div>
     );
 };
+
 
 
 
