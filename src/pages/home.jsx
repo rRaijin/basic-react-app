@@ -138,13 +138,13 @@ export default () => {
                     <h2>Comments:</h2>
                     {commentsList.map((comment) => (
                         <div className="comment" key={comment.id}>
-                            <p className="fz16pxmb10px">{comment.name}</p>
-                            <p className="fz16pxmb10px">{comment.body}</p>
+                            <p className="fz16px-mb10px">{comment.name}</p>
+                            <p className="fz16px-mb10px">{comment.body}</p>
                             <button className="author-button" onClick={() => getAuthorData(comment.userId)}>Get Author Data</button>
                             {authors[comment.userId] && (
                                 <div className="author-info">
-                                    <p className="fz16pxmb10px">Author: {authors[comment.userId].name}</p>
-                                    <p className="fz16pxmb10px">Email: {authors[comment.userId].email}</p>
+                                    <p className="fz16px-mb10px">Author: {authors[comment.userId].name}</p>
+                                    <p className="fz16px-mb10px">Email: {authors[comment.userId].email}</p>
                                 </div>
                             )}
                         </div>
