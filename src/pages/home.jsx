@@ -52,6 +52,30 @@ export default () => {
     const [firstTransition, setFirstTransition] = useState(false);
     const [comments, setComments] = useState([]);
     const [authors, setAuthors] = useState([]);
+    const [showFullText, setShowFullText] = useState(false);
+    const [notes, setNotes] = useState({});
+
+    const getNotesForAuthor = (authorId) => {
+        fetch(`https://jsonplaceholder.typicode.com/todos${authorId}`, {
+            method: "GET",
+        })
+            .then((response) => {
+                if (response.status === 200) {
+                    return response.json();
+                }
+            })
+            .then((data) => {
+                if (data && data !== undefined && data !== "undefined") {
+                    setNotes((prevNotes) => ({
+                        ...prevNotes,
+                        [authorId]: data.slice(0, 5), 
+                    }));
+                } else {
+                    console.log("NO NOTES DATA!");
+                }
+            });
+    };
+    
 
     const getPost = (postId) => {
         // Если использовать filter() Фильтруем по критерию(id), если в массиве не будет объекта - вернется пустой массив, 
@@ -157,6 +181,8 @@ export default () => {
         });
     };
 
+    
+
     useEffect(() => {
         getAuthorsData();
         getTodos();
@@ -174,8 +200,27 @@ export default () => {
         }
     }, [selectedId]);
 
+    useEffect(() => {
+        if (currentPost) {
+            getNotesForAuthor(currentPost.userId);
+        }
+    }, []);
+
     const currentPost = posts.find(p => p.id === selectedId);
     const commentsList = comments.filter(comm => comm.postId === selectedId);
+
+    
+
+    const toggleShowFullText = () => {
+        setShowFullText(!showFullText);
+    };
+
+    const trimText = (text, maxLength) => {
+        if (text.length > maxLength) {
+            return text.slice(0, maxLength) + "... ";
+        }
+        return text;
+    };
 
     return (
         <div className="">
@@ -192,31 +237,48 @@ export default () => {
             {
                 currentPost ?
                 <div className="mb-20px">
-                    <h1>{currentPost.title}</h1>
-                    <p>
-                        <span>Молоко.</span>
-                        <span>{currentPost.body}.</span>
-                        <span>{currentPost.body}</span>
-                        <span>{currentPost.body}</span>
-                        <span>{currentPost.body}</span>
-                        <span>{currentPost.body}</span>
+                    <h1 className="underlined-text text-not-bold italic-text text-blue f-l-140p">{currentPost.title}</h1>
+                    <div>
+                    {showFullText ? (
+                        <p>
+                            <div className="first-l add-dot ">{currentPost.body}</div>
+                            <div className="first-l add-dot ">{currentPost.body}</div>
+
+                            <span onClick={toggleShowFullText} style={{ color: 'blue', cursor: 'pointer' }}> less</span>
+                        </p>
+                        
+                        
+                    ) : (
+                        <p>
+                            {trimText(currentPost.body, 50)}
+                            {currentPost.body.length > 50 && (
+                                <span onClick={toggleShowFullText} style={{ color: 'blue', cursor: 'pointer' }}> more</span>
+                            )}
+                        </p>
+                    )}
+                    {/* other JSX elements */}
+                </div>
+                    {/* <p>
+                        <div className="first-l add-dot ">{currentPost.body}</div>
+                        <div className="f-l add-dot">{currentPost.body}</div>
+                        <div className="f-l add-dot">{currentPost.body}</div>
+                        <div className="f-l add-dot">{currentPost.body}</div>
+                        <div className="f-l add-dot">{currentPost.body}</div>
                     </p>
                     <p>
-                        <span>Хлеб.</span>
-                        <span>{currentPost.body}</span>
-                        <span>{currentPost.body}</span>
-                        <span>{currentPost.body}</span>
-                        <span>{currentPost.body}</span>
-                        <span>{currentPost.body}</span>
+                        <div className="first-l add-dot">{currentPost.body}</div>
+                        <div className="f-l add-dot">{currentPost.body}</div>
+                        <div className="f-l add-dot">{currentPost.body}</div>
+                        <div className="f-l add-dot">{currentPost.body}</div>
+                        <div className="f-l add-dot">{currentPost.body}</div>
                     </p>
                     <p>
-                        <span>Груша.</span>
-                        <span>{currentPost.body}</span>
-                        <span>{currentPost.body}</span>
-                        <span>{currentPost.body}</span>
-                        <span>{currentPost.body}</span>
-                        <span>{currentPost.body}</span>
-                    </p>
+                        <div className="first-l add-dot">{currentPost.body}</div>
+                        <div className="f-l add-dot">{currentPost.body}</div>
+                        <div className="f-l add-dot">{currentPost.body}</div>
+                        <div className="f-l add-dot">{currentPost.body}</div>
+                        <div className="f-l add-dot">{currentPost.body}</div>
+                    </p> */}
                 </div>
                 :
                 <div>No data</div>
@@ -237,8 +299,23 @@ export default () => {
                                     {owner && (
                                         <div className="author-info">
                                             <p className="fz16px-mb10px">Author: {owner.name}</p>
+                                            <p>City: {owner.address.city}</p>
+                                            <p>Street: {owner.address.street}</p>
+                                            <p>Suite: {owner.address.suite}</p>
+                                            <p>Notes:</p>
+                                            {notes[owner.id] && notes[owner.id].length > 0 ? (
+                                                notes[owner.id].slice(0, 5).map((note, index) => (
+                                                    <div key={index} className="note">
+                                                        <p>{note.title}</p>
+                                                        <p>Status: {note.completed ? 'V' : 'X'}</p>
+                                                    </div>
+                                                ))
+                                            ) : (
+                                                <div>No notes for this author.</div>
+                                            )}
                                         </div>
                                     )}
+
                                 </div>
                             )
                         })
