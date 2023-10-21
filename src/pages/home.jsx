@@ -195,8 +195,9 @@ export default () => {
         })
         .then((data) => {
             if (data && data !== undefined && data !== "undefined") {
+                const slicedData = data.slice(0, 5);
                 // console.log('todos: ', data);
-                setNotes([...notes, {authorId: userId, todos: data}]);
+                setNotes([...notes, {authorId: userId, todos: slicedData}]);
             } else {
                 console.log("NO TODOS DATA!");
             }
@@ -260,46 +261,14 @@ export default () => {
                 <div className="mb-20px">
                     <h1 className="underlined-text text-not-bold italic-text text-blue f-l-140p">{currentPost.title}</h1>
                     <div>
-                    {showFullText ? (
-                        <p>
-                            <div className="first-l add-dot ">{currentPost.body}</div>
-                            <div className="first-l add-dot ">{currentPost.body}</div>
-
-                            <span onClick={toggleShowFullText} style={{ color: 'blue', cursor: 'pointer' }}> less</span>
-                        </p>
-                        
-                        
-                    ) : (
-                        <p>
-                            {trimText(currentPost.body, 50)}
-                            {currentPost.body.length > 50 && (
-                                <span onClick={toggleShowFullText} style={{ color: 'blue', cursor: 'pointer' }}> more</span>
-                            )}
-                        </p>
-                    )}
-                    {/* other JSX elements */}
                 </div>
-                    {/* <p>
+                    <p>
                         <div className="first-l add-dot ">{currentPost.body}</div>
-                        <div className="f-l add-dot">{currentPost.body}</div>
-                        <div className="f-l add-dot">{currentPost.body}</div>
-                        <div className="f-l add-dot">{currentPost.body}</div>
-                        <div className="f-l add-dot">{currentPost.body}</div>
+                        <div className="first-letter add-dot">{currentPost.body}</div>
+                        <div className="first-letter add-dot">{currentPost.body}</div>
+                        <div className="first-letter add-dot">{currentPost.body}</div>
+                        <div className="first-letter add-dot">{currentPost.body}</div>
                     </p>
-                    <p>
-                        <div className="first-l add-dot">{currentPost.body}</div>
-                        <div className="f-l add-dot">{currentPost.body}</div>
-                        <div className="f-l add-dot">{currentPost.body}</div>
-                        <div className="f-l add-dot">{currentPost.body}</div>
-                        <div className="f-l add-dot">{currentPost.body}</div>
-                    </p>
-                    <p>
-                        <div className="first-l add-dot">{currentPost.body}</div>
-                        <div className="f-l add-dot">{currentPost.body}</div>
-                        <div className="f-l add-dot">{currentPost.body}</div>
-                        <div className="f-l add-dot">{currentPost.body}</div>
-                        <div className="f-l add-dot">{currentPost.body}</div>
-                    </p> */}
                 </div>
                 :
                 <div>No data</div>
@@ -317,11 +286,27 @@ export default () => {
                             const hasNotes = alreadyFetchedNotes && alreadyFetchedNotes.todos.length > 0; // есть записи
                             return (
                                 <div className="comment" key={comment.id}>
-                                    <p className="fz16px-mb10px">{comment.name}</p>
-                                    <p className="fz16px-mb10px">{comment.body}</p>
+                                    <p className="comment-title">{comment.name}</p>
+                                    {showFullText ? (
+                                        <p>
+                                            <p className="comment-body">{comment.body}</p>
+
+                                            <span onClick={toggleShowFullText} style={{ color: 'blue', cursor: 'pointer' }}> less</span>
+                                        </p>
+                                        
+                                        
+                                    ) : (
+                                        <p>
+                                            {trimText(comment.body, 50)}
+                                            {comment.body.length > 50 && (
+                                                <span className="comment-more-link" onClick={toggleShowFullText} > more</span>
+                                            )}
+                                        </p>
+                                    )}  
+                                    
                                     {owner && (
                                         <div className="author-info">
-                                            <p className="fz16px-mb10px">Author: {owner.name}</p>
+                                            <p className="comment-author">Author: {owner.name}</p>
                                             <p>City: {owner.address.city}</p>
                                             <p>Street: {owner.address.street}</p>
                                             <p>Suite: {owner.address.suite}</p>
@@ -331,14 +316,14 @@ export default () => {
                                                 <div>
                                                     {
                                                         hasNotes ?
-                                                        <ul className="flex flex-col">
+                                                        <ul className="flex flex-col comment-notes-list">
                                                             {
                                                                 alreadyFetchedNotes.todos.map((note, i) => {
                                                                     // console.log('note: ', note)
                                                                     return (
-                                                                        <li className="flex">
-                                                                            <p style={{color: 'green'}}>{note.title}</p>
-                                                                            <p style={{color: 'red'}}>{note.completed ? 'V' : 'X'}</p>
+                                                                        <li className="comment-note">
+                                                                            <p className="text-green">{note.title}</p>
+                                                                            <p className="text-red">{note.completed ? 'V' : 'X'}</p>
                                                                         </li>
                                                                     )
                                                                 })
@@ -347,7 +332,7 @@ export default () => {
                                                         <p>No notes for this author.</p>
                                                     }
                                                 </div> :
-                                                <button onClick={() => getTodos(owner.id)}>
+                                                <button className="button-get-todos" onClick={() => getTodos(owner.id)}>
                                                     Get todos
                                                 </button>
                                             }
