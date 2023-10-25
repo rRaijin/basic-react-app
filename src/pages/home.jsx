@@ -61,10 +61,20 @@ function changeEmailFunc(items) {
 // 1) у каждого абзаца сделать только первую букву очень большой, жирной, и красного цвета - YES/NO
 // 2) после каждого предложения долждна стоять точка и пробел, а первое слово в этом предложении должно начинаться с большой буквы - NO
 // 3) оформить красиво заголовок - текст подчеркнутый и с наколоном, голубого цвета и также начинается с большой буквы - YES
-// 4) для комментариев свойство "name" выводим полностью текст, а "body" обрезаем до 30(50) символов и добавляем "... more" - NO
+// 4) для комментариев свойство "name" выводим полностью текст, а "body" обрезаем до 30(50) символов и добавляем "... more" - YES
 // 5) для автора помимо имени вывести city, street & suite - YES
-// 6) под именем автора вывести список его заметок, не весь, первые пять (https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) - NO
-// 7) список тодос идет в столбик - 5 строк, напротив названия заметки показать статус ее выполнения(если да - V, если нет - Х) - NO
+// 6) под именем автора вывести список его заметок, не весь, первые пять (https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) - YES
+// 7) список тодос идет в столбик - 5 строк, напротив названия заметки показать статус ее выполнения(если да - V, если нет - Х) - YES
+
+// 25.10 TASKS
+// 1) Создать файл utils.js в src/
+// 2) Написать функцию, которая принимает строку и делает первый и последний символ большим.
+// 3) В файле home.jsx применить эту функцию, передав ей следующие строки: "хлеб", "молоко", "крупа", "рыба", вывести в console.log 
+// ИТОГОВЫЙ результат преобразования в виде массива.
+// 4) В том же utils.js написать еще одну функцию, внутри которой есть массив чисел [2, 8, 42], функция принимает любой параметр,
+// проверить является ли числом входящий параметр, если нет - вывести в console.log сообщение об этом, если это число - проверить
+// является ли оно четным, если оно нечетное - вывести соответствующее значение, если четное - проверить, есть ли оно в массиве, находящемся
+// в этой функции, если да - вывести в консоль слово "YES", если нет - "NO" 
 
 export default () => {
     const [posts, setPosts] = useState([]);
@@ -242,6 +252,23 @@ export default () => {
         return text;
     };
 
+    // Она делает первую букву большой и точку в конце
+    const processFirstLetterAndDotInEnd = (string, makeFirstLetterRed = false) => {
+        const firstLetter = string.charAt(0).toUpperCase(); // что она делает
+        let additionalText = string.slice(1);
+        const cssName = makeFirstLetterRed ? 'text-red' : '';
+        if (additionalText[additionalText.length - 1] !== '.') {
+            additionalText = additionalText + '.';
+        }
+
+        return (
+            <p>
+                <span className={cssName}>{firstLetter}</span>
+                <span>{additionalText}</span>
+            </p>
+        )
+    }
+
     console.log('notes: ', notes);
 
     return (
@@ -258,18 +285,27 @@ export default () => {
             </div>
             {
                 currentPost ?
-                <div className="mb-20px">
-                    <h1 className="underlined-text text-not-bold italic-text text-blue f-l-140p">{currentPost.title}</h1>
+                <React.Fragment>
+                    <div className="mb-20px">
+                        <h1 className="underlined-text text-not-bold italic-text text-blue f-l-140p">
+                            {currentPost.title && processFirstLetterAndDotInEnd(currentPost.title)}
+                        </h1>
+                    </div>
                     <div>
-                </div>
-                    <p>
-                        <div className="first-l add-dot ">{currentPost.body}</div>
-                        <div className="first-letter add-dot">{currentPost.body}</div>
-                        <div className="first-letter add-dot">{currentPost.body}</div>
-                        <div className="first-letter add-dot">{currentPost.body}</div>
-                        <div className="first-letter add-dot">{currentPost.body}</div>
-                    </p>
-                </div>
+                        <p>
+                            <div className="">
+                                {
+                                    currentPost.body &&
+                                    processFirstLetterAndDotInEnd(currentPost.body, true)
+                                }
+                            </div>
+                            <div className="">{currentPost.body && processFirstLetterAndDotInEnd(currentPost.body)}</div>
+                            <div className="">{currentPost.body}</div>
+                            <div className="">{currentPost.body}</div>
+                            <div className="">{currentPost.body}</div>
+                        </p>
+                    </div>
+                </React.Fragment>
                 :
                 <div>No data</div>
             }
