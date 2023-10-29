@@ -1,4 +1,4 @@
-function capitalizeFirstAndLast(str) {
+export function capitalizeFirstAndLast(str) {
     if (str.length === 0) {
       return str;
     }
@@ -11,7 +11,7 @@ function capitalizeFirstAndLast(str) {
     return firstChar + middleChars + lastChar;
 }
 
-function checkNumber(param) {
+export function checkNumber(param) {
     if (isNaN(param)) {
       console.log('Параметр не являеться числом')
     }
@@ -29,7 +29,9 @@ function checkNumber(param) {
     }
 }
 
-
-
-// export default checkNumber;
-export default capitalizeFirstAndLast;
+export const trimText = (text, maxLength) => {
+    if (text.length > maxLength) {
+        return text.slice(0, maxLength) + "...";
+    }
+    return text;
+};

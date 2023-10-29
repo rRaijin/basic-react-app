@@ -173,3 +173,35 @@
   justify-content: space-between;
   margin-bottom: 5px;
 }
+
+.user-actions {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.user-actions > .views {
+    width: 20%;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.user-actions > .dislikes {
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.user-actions > .dislikes > button, .user-actions > .likes > button {
+    margin-left: 10px;
+}
+
+.user-actions > .likes {
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    padding: 5px;
+    border: 1px solid black;
+}

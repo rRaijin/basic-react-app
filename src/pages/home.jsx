@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import checkNumber from "../utils.js"
-import capitalizeFirstAndLast from "../utils.js"
+import { checkNumber, capitalizeFirstAndLast } from "../utils.js"
+import Comment from '../components/comment/commentItem.jsx';
 
 // const x = {a: {b:1}}
 // console.log(a.b) // a["b"]
@@ -84,8 +84,10 @@ export default () => {
     const [firstTransition, setFirstTransition] = useState(false);
     const [comments, setComments] = useState([]);
     const [authors, setAuthors] = useState([]);
-    const [showFullText, setShowFullText] = useState(false);
     const [notes, setNotes] = useState([]);
+    const [likes, setLikes] = useState(0);
+    const [dislikes, setDislikes] = useState(0);
+    const views = 100;
 
     const getNotesForAuthor = (authorId) => {
         fetch(`https://jsonplaceholder.typicode.com/todos${authorId}`, {
@@ -108,10 +110,14 @@ export default () => {
             });
     };
 
-    // checkNumber("hello world!");
-    // checkNumber(7);
-    // checkNumber(8);
-    // checkNumber(21);
+    const parentCb = (userId, slicedData) => {
+        setNotes([...notes, {authorId: userId, todos: slicedData}]);
+    }
+
+    checkNumber("hello world!");
+    checkNumber(7);
+    checkNumber(8);
+    checkNumber(21);
 
     const strings = ["хлеб", "молоко", "крупа", "рыба"];
     const results = strings.map(str => capitalizeFirstAndLast(str));
@@ -200,31 +206,6 @@ export default () => {
         });
     };
 
-    // Эта функция сейчас работает 1 раз при загрузке компонента на получение тодос для первого автора
-    // а нужно по нажатию кнопки на авторе запрашивать его тодос, данные вывести в массив из таких объектов:
-    // [{authorId: 1, todos: data}, {authorId: 2, todos: data}]
-    const getTodos = (userId) => {
-        fetch(`https://jsonplaceholder.typicode.com/todos?userId=${userId}`, {
-            method: "GET",
-        })
-        .then((response) => {
-            if (response.status === 200) {
-                return response.json();
-            }
-        })
-        .then((data) => {
-            if (data && data !== undefined && data !== "undefined") {
-                const slicedData = data.slice(0, 5);
-                // console.log('todos: ', data);
-                setNotes([...notes, {authorId: userId, todos: slicedData}]);
-            } else {
-                console.log("NO TODOS DATA!");
-            }
-        });
-    };
-
-    
-
     useEffect(() => {
         getAuthorsData();
     }, []);
@@ -250,17 +231,6 @@ export default () => {
     const currentPost = posts.find(p => p.id === selectedId);
     const commentsList = comments.filter(comm => comm.postId === selectedId);
 
-    const toggleShowFullText = () => {
-        setShowFullText(!showFullText);
-    };
-
-    const trimText = (text, maxLength) => {
-        if (text.length > maxLength) {
-            return text.slice(0, maxLength) + "... ";
-        }
-        return text;
-    };
-
     // Она делает первую букву большой и точку в конце
     const processFirstLetterAndDotInEnd = (string, makeFirstLetterRed = false) => {
         const firstLetter = string.charAt(0).toUpperCase(); // что она делает
@@ -277,8 +247,6 @@ export default () => {
             </p>
         )
     }
-
-    console.log('notes: ', notes);
 
     return (
         <div className="">
@@ -314,6 +282,29 @@ export default () => {
                             <div className="">{currentPost.body}</div>
                         </p>
                     </div>
+
+                    
+                    <div className="user-actions">
+                        <div className="views">
+                            {views}
+                        </div>
+                        <div className="likes">
+                            <div>
+                                {likes}
+                            </div>
+                            <button onClick={() => setLikes(likes + 1)}>
+                                Like
+                            </button>
+                        </div>
+                        <div className="likes">
+                            <div>
+                                {dislikes}
+                            </div>
+                            <button onClick={() => setDislikes(dislikes + 1)}>
+                                Like
+                            </button>
+                        </div>
+                    </div>
                 </React.Fragment>
                 :
                 <div>No data</div>
@@ -324,80 +315,12 @@ export default () => {
                     <h2>Comments:</h2>
                     {
                         commentsList.map((comment) => {
-                            // console.log('comm: ', comment);
-                            const owner = authors.find(a => a.email === comment.email);
-                            // console.log('owner: ', owner);
-                            const alreadyFetchedNotes = notes.find(note => note.authorId === owner.id);
-                            const hasNotes = alreadyFetchedNotes && alreadyFetchedNotes.todos.length > 0; // есть записи
                             return (
-                                <div className="comment" key={comment.id}>
-                                    <p className="comment-title">{comment.name}</p>
-                                    {showFullText ? (
-                                        <p>
-                                            <p className="comment-body">{comment.body}</p>
-
-                                            <span onClick={toggleShowFullText} style={{ color: 'blue', cursor: 'pointer' }}> less</span>
-                                        </p>
-                                        
-                                        
-                                    ) : (
-                                        <p>
-                                            {trimText(comment.body, 50)}
-                                            {comment.body.length > 50 && (
-                                                <span className="comment-more-link" onClick={toggleShowFullText} > more</span>
-                                            )}
-                                        </p>
-                                    )}  
-                                    
-                                    {owner && (
-                                        <div className="author-info">
-                                            <p className="comment-author">Author: {owner.name}</p>
-                                            <p>City: {owner.address.city}</p>
-                                            <p>Street: {owner.address.street}</p>
-                                            <p>Suite: {owner.address.suite}</p>
-
-                                            {
-                                                alreadyFetchedNotes ?
-                                                <div>
-                                                    {
-                                                        hasNotes ?
-                                                        <ul className="flex flex-col comment-notes-list">
-                                                            {
-                                                                alreadyFetchedNotes.todos.map((note, i) => {
-                                                                    // console.log('note: ', note)
-                                                                    return (
-                                                                        <li className="comment-note">
-                                                                            <p className="text-green">{note.title}</p>
-                                                                            <p className="text-red">{note.completed ? 'V' : 'X'}</p>
-                                                                        </li>
-                                                                    )
-                                                                })
-                                                            }
-                                                        </ul> :
-                                                        <p>No notes for this author.</p>
-                                                    }
-                                                </div> :
-                                                <button className="button-get-todos" onClick={() => getTodos(owner.id)}>
-                                                    Get todos
-                                                </button>
-                                            }
-
-
-                                            {/* <p>Notes:</p>
-                                            {notes[owner.id] && notes[owner.id].length > 0 ? (
-                                                notes[owner.id].slice(0, 5).map((note, index) => (
-                                                    <div key={index} className="note">
-                                                        <p>{note.title}</p>
-                                                        <p>Status: {note.completed ? 'V' : 'X'}</p>
-                                                    </div>
-                                                ))
-                                            ) : (
-                                                <div>No notes for this author.</div>
-                                            )} */}
-                                        </div>
-                                    )}
-
-                                </div>
+                                <Comment
+                                    comment={comment}
+                                    authors={authors}
+                                    notes={notes}
+                                    parentCb={parentCb}/>
                             )
                         })
                     }
