@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-
+import checkNumber from "../utils.js"
+import capitalizeFirstAndLast from "../utils.js"
 
 // const x = {a: {b:1}}
 // console.log(a.b) // a["b"]
@@ -106,7 +107,15 @@ export default () => {
                 }
             });
     };
-    
+
+    // checkNumber("hello world!");
+    // checkNumber(7);
+    // checkNumber(8);
+    // checkNumber(21);
+
+    const strings = ["хлеб", "молоко", "крупа", "рыба"];
+    const results = strings.map(str => capitalizeFirstAndLast(str));
+    console.log('strings: ',results);
 
     const getPost = (postId) => {
         // Если использовать filter() Фильтруем по критерию(id), если в массиве не будет объекта - вернется пустой массив, 
