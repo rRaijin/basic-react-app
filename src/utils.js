@@ -1,7 +1,3 @@
-import { useState } from "react";
-// const [likes, setLikes] = useState(0);
-// const [dislikes, setDislikes] = useState(0);
-
 export function capitalizeFirstAndLast(str) {
     if (str.length === 0) {
       return str;
@@ -39,29 +35,3 @@ export const trimText = (text, maxLength) => {
     }
     return text;
 };
-
-export const Like = () => {
-  const [likes, setLikes] = useState(0);
-
-  <div className="likes">
-      <div>
-          {likes}
-      </div>
-      <button onClick={() => setLikes(likes + 1)}>
-          Like
-      </button>
-  </div>
-}
-
-export const DisLike = () => {
-  const [dislikes, setDislikes] = useState(0);
-
-  <div className="likes">
-      <div>
-          {dislikes}
-      </div>
-      <button onClick={() => setDislikes(dislikes + 1)}>
-          Like
-      </button>
-  </div>
-}

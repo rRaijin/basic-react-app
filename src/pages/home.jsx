@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { checkNumber, capitalizeFirstAndLast } from "../utils.js"
-import { Like, DisLike } from "../utils.js";
+import Like from "../components/reactions/like.jsx";
+import Dislike from "../components/reactions/dislike.jsx";
 import Comment from '../components/comment/commentItem.jsx';
 
 
@@ -290,9 +291,8 @@ export default () => {
                         <div className="views">
                             {views}
                         </div>
-                        <Like/>
-                        
-                        
+                        <Like item={currentPost}/>
+                        <Dislike item={currentPost} defaultValue={4}/>
                     </div>
                 </React.Fragment>
                 :

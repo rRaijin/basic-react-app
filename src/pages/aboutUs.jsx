@@ -1,5 +1,5 @@
-import ComponentWithConsole, { WithmyReklamaComponent } from '../components/books/ComponentWithConsole';
-import MyWrappedComponent from '../components/books/WrappedComponent';
+import ComponentWithConsole, { WithmyReklamaComponent } from '../components/books/componentWithConsole';
+import MyWrappedComponent from '../components/books/wrappedComponent';
 
 export default () => {
     const users = ['vasya', 'petya'];
