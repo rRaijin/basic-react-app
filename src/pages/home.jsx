@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { checkNumber, capitalizeFirstAndLast } from "../utils.js"
+import { Like, DisLike } from "../utils.js";
 import Comment from '../components/comment/commentItem.jsx';
+
 
 // const x = {a: {b:1}}
 // console.log(a.b) // a["b"]
@@ -288,22 +290,9 @@ export default () => {
                         <div className="views">
                             {views}
                         </div>
-                        <div className="likes">
-                            <div>
-                                {likes}
-                            </div>
-                            <button onClick={() => setLikes(likes + 1)}>
-                                Like
-                            </button>
-                        </div>
-                        <div className="likes">
-                            <div>
-                                {dislikes}
-                            </div>
-                            <button onClick={() => setDislikes(dislikes + 1)}>
-                                Like
-                            </button>
-                        </div>
+                        <Like/>
+                        
+                        
                     </div>
                 </React.Fragment>
                 :
